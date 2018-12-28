@@ -1,0 +1,28 @@
+.menuIsFixed {
+    padding-top: 70px;
+}
+
+.jumboImage {
+    background-image: url('../images/Hero\ Image.jpg');  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.jumboSize {
+    height: 90vh;
+}
+
+.jumboTexts h1 {
+    color: #A0D2E9;
+    padding-top: 10vh;
+}
+
+.jumboTexts p {
+    font-style: normal;
+    font-weight: normal;
+    line-height: 30px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.65);
+}

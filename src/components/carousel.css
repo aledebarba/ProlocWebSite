@@ -1,0 +1,13 @@
+.customCarousel {
+    height: 50%;
+}
+
+.customCarousel h2, h3, p {
+    color: white;
+}
+
+.customCarousel h3 {
+    text-align: center;
+    padding: 40px 0px;
+
+}

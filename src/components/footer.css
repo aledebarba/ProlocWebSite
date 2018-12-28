@@ -1,0 +1,47 @@
+.footer {
+    background-color: #242A36;
+    padding: 60px 40px 40px 40px;
+}
+
+.footer p {
+    font-family: 'MerriWeather Sans', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 24px;
+    font-size: 14px;
+    text-align: left;
+    color: #BDBDBD;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0px;
+ }
+
+ .footer-copyright {
+    background: #693121;
+    box-shadow: 0px -15px 40px rgba(0, 0, 0, 0.55);
+    color: white;
+    padding: 30px;
+    text-align: center;
+ }
+
+ .footer h3{
+        font-family: 'MerriWeather Sans', Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        line-height: normal;
+        font-size: 10px;
+        text-transform: uppercase;
+        color: #D69578;
+        margin-bottom: 25px;
+ }
+
+ .footer a {
+     color: #BDBDBD;
+     text-decoration: none;
+ }
+
+ .footerIcons {
+    color: #BDBDBD;
+ }
