@@ -6,7 +6,7 @@ export default () => (
     <div className='container-fluid customCarousel'>
     <div className='row justify-content-center'>
         <div className='col col-md-6'>
-        <h3>Essas são algumas locações que fazem parte de nosso catálogo:</h3>
+            <h3>Essas são algumas locações que fazem parte de nosso catálogo:</h3>
         </div>
     </div>
 

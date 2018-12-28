@@ -1,0 +1,16 @@
+.homeCarousel {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+homeCarouselItem {
+    background-color: darkgrey;
+}
+
+homeCarouselImage {
+    width: 100%;
+    height: auto;
+}
