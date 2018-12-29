@@ -1,16 +1,35 @@
 .homeCarousel {
+    justify-self: center;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+
+.homeCarouselItem {
+}
+
+@media (max-width: 900px){
+.homeCarousel {
     width: 100%;
-    height: 500px;
-    display: flex;
-    justify-content: center;
+    height: auto;
     overflow: hidden;
 }
 
-homeCarouselItem {
-    background-color: darkgrey;
-}
-
-homeCarouselImage {
+.homeCarousel img {
     width: 100%;
     height: auto;
 }
+}
+
+.homeCarousel h1 {
+    font-style: normal;
+    font-weight: normal;
+    line-height: 56px;
+    font-size: 44px;
+    color: #A0D2E9;
+    position: relative;
+    margin-top: 50px;
+}
+
+.homeCarousel p { color: #CBCFD4;
+                    margin-bottom: 50px; }
