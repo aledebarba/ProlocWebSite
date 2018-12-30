@@ -1,39 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700|Merriweather:400,400i,700');
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   width: 100% !important;
   background: linear-gradient(90deg, #00252D -21.05%, #780000 121.05%);
 }
 
-p, a, a:hover, span, div {
-font-family: 'Merriweather Sans', Arial, Helvetica, sans-serif;
+p, a, a:hover, span {font-family: 'Merriweather Sans', Arial, Helvetica, sans-serif !important; color: #CBCFD4; font-weight: normal !important; }
+h1, h2, h3, h4, h5 { font-family: 'Merriweather', 'Times New Roman', Times, serif; color: #A0D2E9; }
+
+@media(min-width: 320px) {
+p { font-size: 16px !important;}
+h1 { font-size: 24px !important; }
+h2 { font-size: 14px !important; }
+h3, h4, h5 { font-size: 12px !important; font-weight: bold;}
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Merriweather', 'Times New Roman', Times, serif;
+@media(min-width: 760px) {
+  p {font-size: 18px !important; font-weight: normal !important;}
+  h1 {font-size: 38px !important; }
+  h2 {font-size: 18px !important;}
+  h3, h4, h5 { font-size: 14px !important; font-weight: normal !important;}
 }
 
-h1 {
-  font-size: 42px;
+@media(min-width: 1020px) {
+  h1 {font-size: 42px !important; font-weight: norma !important;}
+  h2 {font-size: 24px !important;}
+  h3, h4, h5 { font-size: 18px !important;} 
 }
 
-h2 {
-  font-size: 36px;
+@media(min-width: 1150px) {
+  h1 {font-size: 56px !important;}
+  h2 {font-size: 42px !important;}
+  h3, h4, h5 { font-size: 24px !important;}
+  
 }
 
-h3 {
-  font-size: 28px;
-}
-
-h4 {
-  font-size: 14px;
-}
-
-h5 { 
-  font-size: 10px;
-  font-weight: bold;
+@media(min-width: 1400px) {
+  
 }
 
 .styled-button-1 {
@@ -47,4 +52,18 @@ h5 {
 
 .styled-button-1 :hover {
   text-decoration: none;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }

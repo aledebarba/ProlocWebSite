@@ -13,16 +13,16 @@
     height: 90vh;
 }
 
-.jumboTexts h1 {
+.jumbotron h1 {
     color: #A0D2E9;
     padding-top: 10vh;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65); 
 }
 
-.jumboTexts p {
+.jumbotron p {
     font-style: normal;
     font-weight: normal;
     line-height: 30px;
-    font-size: 18px;
     color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.65);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65);
 }

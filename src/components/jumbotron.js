@@ -3,7 +3,7 @@ import './jumbotron.css'
 import { FaAngleDown } from 'react-icons/fa';
 
 const Jumbotron = (props) => (
-    <div className="jumbotron jumboImage menuIsFixed jumboSize jumboTexts">
+    <div className="jumbotron jumboImage menuIsFixed jumboSize">
     <div className="container">
     <div className="row justify-content-center">
         <div className="col col-sm-6 col-xg-3">

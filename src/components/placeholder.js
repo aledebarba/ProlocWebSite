@@ -3,10 +3,10 @@ import React from 'react'
 const placeholder = (props) => (
 
     <div style={{
-        width:'100%',
+        display: 'block',
         backgroundColor:'gray',
         padding:'20px',
-        margin:'20px',
+        margin:'30px 20px',
         color:'white'
     }}>
     {props.title}

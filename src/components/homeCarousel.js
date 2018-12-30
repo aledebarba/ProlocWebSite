@@ -1,11 +1,15 @@
-import React from "react";
+import React from "react"
+
 import './homeCarousel.css'
-import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-import RBCarousel from "react-bootstrap-carousel";
-import { Link } from "gatsby";
+import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css"
+
+import RBCarousel from "react-bootstrap-carousel"
+import { Link } from "gatsby"
 import { FaAngleRight } from 'react-icons/fa'
 
-const styles = { height: '400px', width: "100%" }
+
+
+
 
 export default class HomeCarousel extends React.PureComponent {
   constructor (props) {
@@ -48,7 +52,7 @@ export default class HomeCarousel extends React.PureComponent {
         <React.Fragment>
         <div className="container-fluid homeCarousel">
         <div className="row justify-content-center">
-          <div className="col col-md-6">
+          <div className="col col-md-10">
             <h1>Catálogo irretocável</h1>
             <p>Acervo de locações amplo e flexível. Nossas opções certamente se encaixam em suas necessidade. Veja algumas de nossas locações abaixo, visite uma amostra de nosso catálogo clicando no próximo botão.</p>
           </div>
@@ -86,7 +90,7 @@ export default class HomeCarousel extends React.PureComponent {
             <CarouselItem title="Outros" 
                           lead="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                           imgURL="/outros/outros1.webp" />
-            <CarouselItem title="Outris" 
+            <CarouselItem title="Outros" 
                           lead="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                           imgURL="/outros/outros2.webp" />
             </RBCarousel>
@@ -106,7 +110,7 @@ export default class HomeCarousel extends React.PureComponent {
 
    return (
     <div className="homeCarouselItem"> 
-        <img className="homeCarouselImage" src={imagem} />
+        <img src={imagem} />
         <div className="carousel-caption d-none d-md-block">
           <h1>{props.title}</h1>
           <div className="row justify-content-center">
