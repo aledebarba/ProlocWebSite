@@ -1,0 +1,17 @@
+.style-button-1 {
+    padding: 10px 25px;
+    background: linear-gradient(90deg, #DE533C 10.79%, #A73313 92.45%), #C4C4C4;
+    border-radius: 50px;
+    color: #FFF385;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.75);
+    text-align: center;
+}
+
+.style-button-2 {
+    padding: 10px 25px;
+    background: none;
+    border-radius: 50px;
+    color:coral;
+    border: solid 1px coral;
+    text-align: center;
+}

@@ -5,11 +5,7 @@ import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css"
 
 import RBCarousel from "react-bootstrap-carousel"
 import { Link } from "gatsby"
-import { FaAngleRight } from 'react-icons/fa'
-
-
-
-
+import { FaAngleRight } from "react-icons/fa"
 
 export default class HomeCarousel extends React.PureComponent {
   constructor (props) {

@@ -1,13 +1,21 @@
 import React from 'react'
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaAngleRight } from 'react-icons/fa';
+import './customButton.css'
+
+// props
+// model 1:gradient / 2:line
+// url
+// labem
+// quick example: <CustomButton model="1" url="/" label="Go Home" />
 
 const CustomButton = (props) => {
      
-var clName = "styled-button-" + props.model ? props.model : "1"
+var clName = props.model ? props.model : "1"
+clName="style-button-"+clName
 
 return (
     <React.Fragment>
-        <a href="{props.url}" className={clName}>{props.label}&nbsp;<FaArrowLeft/></a>
+        <a href={props.url} className={clName}>{props.label}&nbsp;<FaAngleRight/></a>
     </React.Fragment>
 )
 }

@@ -1,6 +1,14 @@
-caseLeftPanel {
-    padding: 10px;
+.movie-case {
+    box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.5);
 }
-caseRightPanel{
-    padding: 10px;
+
+.caseLeftPanel {
+    padding: 50px 25px 50px 50px;
+    background: #242A36;
+    }
+
+.caseRightPanel{
+    padding: 25px;
+    background: linear-gradient(90deg, #DE533C 10.79%, #A73313 92.45%), #C4C4C4;
+
 }

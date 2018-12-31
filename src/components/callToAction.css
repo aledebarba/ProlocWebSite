@@ -1,0 +1,18 @@
+.call-to-action {
+    background: linear-gradient(180deg, #866A1C 0%, #242A36 100%);
+    box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
+    padding: 100px 30px;
+    margin-bottom: 50px;  
+    text-align: center;
+}
+
+.call-to-action h1, p { 
+    margin-bottom: 30px;
+    color: rgba(246, 244, 250, 0.746);
+}
+
+.call-to-action p { 
+    font-size: 14px; 
+    font-weight: normal; 
+    margin-bottom: 40px;
+    color: #F6F4FA; }
