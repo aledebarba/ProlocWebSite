@@ -1,21 +1,28 @@
 .footer {
     background-color: #242A36;
-    padding: 60px 40px 40px 40px;
+    padding: 40px;
 }
 
 .footer p {
     font-family: 'MerriWeather Sans', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
-    line-height: 24px;
+    line-height: 1.5;
     font-size: 14px;
     text-align: left;
     color: #BDBDBD;
+    padding: 0px;
+    margin: 0px;
 }
 
 .footer ul {
     list-style: none;
     padding: 0px;
+ }
+
+ .footer ul li {
+    overflow: hidden;
+    white-space: nowrap;
  }
 
  .footer-copyright {
@@ -34,7 +41,12 @@
         font-size: 10px;
         text-transform: uppercase;
         color: #D69578;
-        margin-bottom: 25px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        margin-left: 0px;
+        margin-right: 0px;
+        height: 40px;
+        overflow: hidden;
  }
 
  .footer a {
@@ -45,3 +57,6 @@
  .footerIcons {
     color: #BDBDBD;
  }
+
+ .footerCol {margin-top: 20px}
+

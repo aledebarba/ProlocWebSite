@@ -1,0 +1,9 @@
+.homeMovieSection h1, p {
+    text-align: center;
+    padding: 10px 50px;
+}
+
+.homeMovieSection {
+    margin-top: 100px;
+}
+

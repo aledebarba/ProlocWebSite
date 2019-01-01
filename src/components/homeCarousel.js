@@ -46,7 +46,7 @@ export default class HomeCarousel extends React.PureComponent {
       
       return (
         <React.Fragment>
-        <div className="container-fluid homeCarousel">
+        <div id="homeCarouselPosition" className="container-fluid homeCarousel">
         <div className="row justify-content-center">
           <div className="col col-md-10">
             <h1>Catálogo irretocável</h1>

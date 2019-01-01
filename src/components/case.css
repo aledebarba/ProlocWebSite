@@ -12,3 +12,5 @@
     background: linear-gradient(90deg, #DE533C 10.79%, #A73313 92.45%), #C4C4C4;
 
 }
+
+.caseLeftPanel p { text-align: left; padding-left: 0px; }

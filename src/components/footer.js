@@ -7,15 +7,15 @@ const Footer = () => (
     <React.Fragment>
         <div className="container-fluid footer">
           <div className="row justify-content-center">
-                <div className='col col-md-3'>
-                    <img src={Logo} />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla faucibus egestas elit, at eleifend elit ornare ut.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla faucibus egestas elit, at eleifend elit ornare ut.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla faucibus egestas elit, at eleifend elit ornare ut.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla faucibus egestas elit, at eleifend elit ornare ut.</p>
+                <div className='col-md-4 footerCol'>
+                    <h3><img src={Logo} /></h3>
+                    <p>Somos especializados em locações. Trabalhamos com mais de 10.000 locais por todo o Brasil. Acompanhamos constantemente sua produção, para que todas as necessidades do trabalho sejam cumpridas, e após a realização, fazemos a entrega de contratos e recibos de pagamento, para que não haja nenhum problema jurídico, inclusive junto aos órgãos competentes, como departamentos de trânsito e prefeituras.​</p>
                 </div>
-                <div className='col col-md-3'>
+                <div className='col-md-4 footerCol'>
                     <h3>Nota Legal</h3>
                     <p>Todo o conteúdo deste site te m direitos reservados, no Brasil, de acordo com a Lei dos Direitos do Autor (LEI Nº 9.610, DE 19 DE FEVEREIRO DE 1998), e internacionalmente pela Convenção de Berna, de 9 de Setembro de 1886, Decreto 75.699/75. Antes de reproduzir qualquer conteúdo do site, entre em contato pelo email contato@proloc.com.br e solicite autorização formal.</p>
                 </div>
-                <div className='col col-md-2'>
+                <div className='col-md-2 footerCol'>
                 <h3>Navegação</h3>
                 <ul>
                     <li><a href="/">Home</a></li>
@@ -26,7 +26,7 @@ const Footer = () => (
                     <li><a href="/login/">Login</a></li>
                 </ul>
                 </div>          
-                <div className='col col-md-2'>
+                <div className='col-md-2 footerCol'>
                      <h3>Redes Sociais</h3>
                     <ul>
                         <li><FaFacebook className="footerIcons"/>&nbsp;<a href="/">Facebook</a></li>

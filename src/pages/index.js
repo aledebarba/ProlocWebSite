@@ -10,7 +10,7 @@ import CallToAction from '../components/callToAction';
 
 const IndexPage = () => (
     <Layout>
-        <Jumbotron title="Bem vindos." tagline="Somos a PROLOC. Peritos em encontrar locações de filmagem perfeitas para seu projeto. De modo rápido e descomplicado, porque nós sabemos bem o que é uma produção de filme."/>
+        <Jumbotron title="Bem vindos." lead="Somos a PROLOC. Peritos em encontrar locações de filmagem perfeitas para seu projeto. De modo rápido e descomplicado, porque nós sabemos bem o que é uma produção de filme."/>
         <HomeCarousel />
         <HomeMovieSection />       
         <TeamSection />
