@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Proloc Locações Profissionais`,
+    description: `Somos uma empresa especializada em locações de filmagem. Avaliamos seu projeto, argumento, decupagem de cena ou mesmo seu roteiro, cruzamos com informações em nosso banco de dados e devolvemos uma proposta com fotos das locações mais adequadas. Resolvemos toda a parte contratual e jurídica, solicitamos as autorizações junto às entidades responsáveis e acompanhamos sua produção, até a conclusão das gravações em nossas locações. Assistencia completa de um time consciente do que é uma produção de filme.`,
+    author: `@aledebarba`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

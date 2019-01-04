@@ -2,6 +2,8 @@ import React from 'react'
 import Logo from '../images/Logo@2x.png';
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import './footer.css'
+import CustomButton from './customButton';
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 const Footer = () => (
     <React.Fragment>
@@ -38,7 +40,15 @@ const Footer = () => (
           </div>
         </div>
         <div className="container-fluid footer-copyright">
-            <h4>Copyright: Todos os direitos reservados para Proloc</h4>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h4>Copyright: Todos os direitos reservados para Proloc</h4>
+                </div>
+                <div class="col-md-4">
+                    <CustomButton label="Voltar ao topo" url="#topnavbar" />
+                </div>
+            </div>
+            
        </div>
     </React.Fragment>
 )

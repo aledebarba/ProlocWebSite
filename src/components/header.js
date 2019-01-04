@@ -1,42 +1,23 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Component } from 'react'
+import '../components/styles.css'
 
-const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
+export default class Header extends Component {
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+  render() {
+    return (
+      <div className="container-fluid siteHeader" style={this.getTheBackgroundImage()}>
+        <div class="row justify-content-center">
+          <div class="col-xs-12 col-sm-4"><h1>{this.props.title}</h1>
+            {this.props.children}</div>
+          <div class="col-8"></div>
+        </div>
+      </div>
+    )
+  }
+
+  getTheBackgroundImage() {
+    return {
+      backgroundImage: this.props.scr ? `url(${this.props.scr})` : 'url(https://dl.dropboxusercontent.com/s/09wrpk3qt1050p8/brasil-predio-interior.jpg?raw=1)'
+    };
+  }
 }
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header

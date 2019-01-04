@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const placeholder = (props) => (
+export default class PlaceHolder extends Component {
 
-    <div style={{
-        display: 'block',
-        backgroundColor:'gray',
-        padding:'20px',
-        margin:'30px 20px',
-        color:'white'
-    }}>
-    {props.title}
-    </div>
-)
+    defineTitle = () => {
+        return this.props.title ? this.props.title : <p>Place Holder Space</p>
+    }
 
-export default placeholder
+    render() {
+        return (
+
+            <div style={{
+                display: 'block',
+                backgroundColor: 'gray',
+                padding: '20px',
+                margin: '30px 20px',
+                color: 'white',
+                textAlign: 'center'
+            }}>
+               <h1>{this.defineTitle()}</h1>
+               <div style={{ color: 'white'}}>
+                    {this.props.children}
+               </div>
+            </div>
+        )
+    }
+
+}

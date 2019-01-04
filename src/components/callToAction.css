@@ -1,6 +1,6 @@
 .call-to-action {
     background: linear-gradient(180deg, #866A1C 0%, #242A36 100%);
-    box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px -30px 40px rgba(0, 0, 0, 0.85);
     padding: 100px 30px;
     margin-bottom: 50px;  
     text-align: center;
@@ -16,3 +16,10 @@
     font-weight: normal; 
     margin-bottom: 40px;
     color: #F6F4FA; }
+
+@media (max-width: 760px) {
+    .call-to-action p {
+         text-align: left;
+         padding: 0px 0px;
+    }
+}
