@@ -122,13 +122,20 @@ box-shadow: 0px 30px 34px -12px rgba(0,0,0,0.75);
 
 .quemsomos .row { margin-bottom: 80px }
 
-.quemsomos .imgalign {
-  display: -webkit-flex; /* Safari */
-  -webkit-align-items: center; /* Safari 7.0+ */
+.quemsomos .imgAlign {
   display: flex;
+  -webkit-align-items: center; /* Safari 7.0+ */
   align-items: center;
+  align-content: center;
 }
 
 .quemsomos img {
   width: 100%;
+  margin: 0px auto;
+}
+
+@media (min-width: 1024px) {
+  .quemsomos img {
+    width: 80%;
+  }
 }

@@ -6,7 +6,7 @@ import CustomButton from './customButton'
 /* 
 Props
     title 
-    lead
+    text
     date
     category
 */
@@ -20,7 +20,7 @@ return (
                     <div className="col-md-6 caseLeftPanel">
                         <h5>{ FaFilm }&nbsp;</h5>
                         <h3>{props.title}</h3>
-                        <p>{props.lead}</p>
+                        <p>{props.text}</p>
                             {props.withButton &&
                                 <CustomButton model='3' label='Conheça mais cases' url='/cases/' />
                             }
