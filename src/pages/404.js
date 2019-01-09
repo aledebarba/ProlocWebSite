@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import CustomButton from '../components/customButton';
+import DropBoxImage from '../components/dropBoxImage';
 
 const NotFoundPage = () => {
   return (
@@ -19,7 +20,7 @@ const NotFoundPage = () => {
             <CustomButton label="Ir para Home Page" url="/"/>
           </div>
           <div class="col">
-            <img src="https://dl.dropboxusercontent.com/s/hk65jdebol0e73y/Asset%202.png?raw=1" />
+            <DropBoxImage src="https://www.dropbox.com/s/hk65jdebol0e73y/Asset%202.png?dl=0" />
           </div>
         </div>
       </div>

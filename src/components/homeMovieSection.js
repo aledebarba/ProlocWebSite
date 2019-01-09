@@ -8,7 +8,7 @@ const HomeMovieSection = () => (
         <div className="row justify-cotent-center">
             <div className="col">
                 <h1>Conheça alguns dos nossos cases</h1>
-                <p>Entenda como seu argumento, roteiro ou projeto se integra à sua produção.</p>
+                <p>Entenda como seu argumento, roteiro ou projeto se integra ao nosso processo de locação..</p>
             </div>
         </div>     
         <div className="row justify-content-center">

@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 import Logo from '../images/Menu Logo.png'
 import './nav.css'
-import ScrollableAnchor from 'react-scrollable-anchor'
 
 export default class Nav extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg mainMenu fixed-top">
-        <ScrollableAnchor id={'topnavbar'}>
           <a className="navbar-brand" href="/">
-            <img src={Logo} />
+            <img src={Logo} alt="Marca da Proloc"/>
           </a>
-        </ScrollableAnchor>
         <button
           className="navbar-toggler"
           type="button"

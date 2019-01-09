@@ -3,14 +3,13 @@ import Logo from '../images/Logo@2x.png';
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import './footer.css'
 import CustomButton from './customButton';
-import ScrollableAnchor from 'react-scrollable-anchor'
 
 const Footer = () => (
     <React.Fragment>
         <div className="container-fluid footer">
           <div className="row justify-content-center">
                 <div className='col-md-4 footerCol'>
-                    <h3><img src={Logo} /></h3>
+                    <h3><img src={Logo} alt="Logo da Proloc"/></h3>
                     <p>Somos especializados em locações. Trabalhamos com mais de 10.000 locais por todo o Brasil. Acompanhamos constantemente sua produção, para que todas as necessidades do trabalho sejam cumpridas, e após a realização, fazemos a entrega de contratos e recibos de pagamento, para que não haja nenhum problema jurídico, inclusive junto aos órgãos competentes, como departamentos de trânsito e prefeituras.​</p>
                 </div>
                 <div className='col-md-4 footerCol'>
@@ -40,12 +39,12 @@ const Footer = () => (
           </div>
         </div>
         <div className="container-fluid footer-copyright">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
+            <div className="row justify-content-center">
+                <div className="col-md-8">
                     <h4>Copyright: Todos os direitos reservados para Proloc</h4>
                 </div>
-                <div class="col-md-4">
-                    <CustomButton label="Voltar ao topo" url="#topnavbar" />
+                <div className="col-md-4">
+                    <CustomButton label="Voltar ao topo" url="/#topnavbar" />
                 </div>
             </div>
             

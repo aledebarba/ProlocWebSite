@@ -1,12 +1,10 @@
 import React from "react"
-
 import './homeCarousel.css'
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css"
-
 import RBCarousel from "react-bootstrap-carousel"
 import { Link } from "gatsby"
 import { FaAngleRight } from "react-icons/fa"
-import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
+
 
 export default class HomeCarousel extends React.PureComponent {
   constructor(props) {
@@ -44,16 +42,16 @@ export default class HomeCarousel extends React.PureComponent {
 
   render() {
     let { leftIcon, rightIcon } = this.state
-    configureAnchors({offset: -60, scrollDuration: 500})
+
 
     return (
       <React.Fragment>
         <div id="homeCarouselPosition" className="container-fluid homeCarousel">
           <div className="row justify-content-center">
             <div className="col col-md-10">
-              <ScrollableAnchor id={'carousel'}>
-                <h1>Catálogo irretocável</h1>
-              </ScrollableAnchor>
+
+              <h1>Catálogo irretocável</h1>
+
               <p>Acervo de locações amplo e flexível. Nossas opções certamente se encaixam em suas necessidade. Veja algumas de nossas locações abaixo, visite uma amostra de nosso catálogo clicando no próximo botão.</p>
             </div>
           </div>
@@ -102,15 +100,13 @@ export default class HomeCarousel extends React.PureComponent {
   } // render
 } // component
 
-{/* --------------------------------------------------------------------- */ }
-
 const CarouselItem = (props) => {
 
   var imagem = require('../images' + props.imgURL)
 
   return (
     <div className="homeCarouselItem">
-      <img src={imagem} />
+      <img src={imagem} alt="" />
       <div className="carousel-caption d-none d-md-block">
         <h1>{props.title}</h1>
         <div className="row justify-content-center">

@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles.css'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Placeholder from './placeholder';
 
 const Layout = ({ children }) => (
   <StaticQuery
