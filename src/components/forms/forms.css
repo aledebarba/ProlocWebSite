@@ -1,0 +1,60 @@
+
+.casesFormHeader {
+    margin:50px 20% 0px 20%;
+    background: #465C2F;
+    margin-top: 100px !important;
+    border-radius: 10px;
+    box-shadow: 0px -10px 40px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+}
+
+.casesFormContainer {
+    background: linear-gradient(180deg, #866F1C 55.37%, #465C2F 100%);
+    box-shadow: 0px -10px 40px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    margin-top: -10px !important;
+}
+
+
+.casesFormHeader h4 {
+    text-align: center !important;
+    padding: 20px;
+}
+
+.casesFormContainer ul {
+    margin-top: 50px;
+}
+.casesFormContainer li {
+    font-family: 'Merriweather Sans', Arial, Helvetica, sans-serif !important;
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-align: left;
+    font-weight: 300 !important;
+    color: rgb(202, 202, 202);
+    font-size: 0.8em;
+    line-height: 1.2;
+}
+
+.editCasesForm label {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.editCasesForm h1 {
+    color: white;
+    font-weight: bold;
+}
+
+.editCasesForm p {
+    text-align: left !important;
+    margin: 0 0 20px 0;
+    padding:0;
+}
+
+.editCasesForm legend {
+    color: white;
+    margin-bottom: 0px;
+    margin-top: 50px;
+}
+

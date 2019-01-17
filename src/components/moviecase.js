@@ -1,16 +1,17 @@
-import React, {Component } from 'react'
-import './case.css'
+import React, {Component} from 'react'
+import './moviecase.css'
 import { FaFilm } from 'react-icons/fa'
 import CustomButton from './customButton'
 
 /* 
-Props
-    title 
-    text
-    date
-    tags
-    imagesArr
-    yUrl
+Rederiza um case
+Recebe e resolve:
+    title={tituloDoCase}
+    text ={textoDoCase}
+    date ={dataDoCase}
+    tags = [tags,do,case]
+    imagesArr = [array,de,urls,de,imagens,que,fizeram,parte,do,case]
+    yUrl = url do Youtube onde está o filme final do case
 */
 
 export default class MovieCase extends Component {
@@ -23,9 +24,16 @@ export default class MovieCase extends Component {
             <div className="col-md-6 caseLeftPanel">
                 <h5><FaFilm style={{marginRight: "15px"}}/>{this.props.date}</h5>
                 <h3>{this.props.title }</h3>
-                <p>{ this.getPostText() }</p>
-                {this.props.withButton && <CustomButton model='3' label='Conheça mais cases' url='/cases/' /> }
                 <h5>{this.getTags()}</h5>
+
+                <p>{this.getPostText() }</p>
+                <h4>Locações que fizeram parte desse filme</h4>
+                <div className="movieCaseImages"> 
+                    {this.props.imagesArr.map((oneImage, imageKey) => {
+                       return <img src={oneImage} alt='Locação que fez parte desse filme' key={imageKey}/>
+                    })}
+                </div>                
+                {this.props.withButton && <CustomButton model='3' label='Conheça mais cases' url='/cases/' /> }
             </div>
             <div className="col-md-6 caseRightPanel">
                 <div className="videoWrapper">
@@ -38,7 +46,6 @@ export default class MovieCase extends Component {
   }
 
     getTags() {
-        let finalTags = ""
         let formatedTags = this.props.tags ? this.props.tags : ["notags"]
         formatedTags = formatedTags.map ( function(tag) {
             return "#"+tag+"  ";
@@ -61,4 +68,5 @@ export default class MovieCase extends Component {
         postText = postText.replace("</p>", "");
         return postText;
     }
+
 }

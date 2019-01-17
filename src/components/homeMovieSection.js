@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieCase from './case'
+import MovieCase from './moviecase'
 import './homeMovieSection.css'
 
 const HomeMovieSection = () => (

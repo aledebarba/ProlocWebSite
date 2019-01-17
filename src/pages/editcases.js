@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import CasesForm from '../components/casesform'
-import MovieCase from '../components/case'
+import CasesForm from '../components/forms/casesform'
+import MovieCase from '../components/moviecase'
 
 import { configFirebase as DB_CONFIG } from '../config/config-firebase'
 import firebase from 'firebase/app'
@@ -17,48 +17,92 @@ export default class editCases extends Component {
       ? firebase.initializeApp(DB_CONFIG)
       : firebase.app() 
 
-    this.state = {
-      casesArr: [],
+    this.state = { 
+          casesArr: []
+      }
+  }
+
+  writeCase = ( formCase ) => {
+    var ref = this.app.database().ref('cases') // roteia o bd
+    ref.push().set(formCase)
+  }
+
+  deleteCase = (caseId, caseTitle) => {
+    let msg = "Tem certeza que deseja apagar\n"+caseTitle
+    if ( window.confirm(msg)  ) {
+      this.app.database().ref('cases').child(caseId).remove();
     }
+  }
+
+  editCase = (caseId) => {
+    alert("not implemented yet")
   }
   
   componentDidMount() {
 
-   // define o objeto ref que referencia o banco de dados numa rota específica 'cases'
-    var ref = this.app.database().ref('cases')
-  
-  // solicita valores ao objeto ref, transmite para a função anonima que recebe o resultado no objeto snapshot
-    ref.on('value', snapshot => {
-      // atualiza o estado do componente
-      this.setState ({
-        casesArr: snapshot.val() // val() recupera o valor dos dados em formato javascript, contidos no objeto snapshot, ou seja, todo o conteúdo da rota 'cases' 
+    var ref = this.app.database().ref('cases') // roteia o bd
+    var newState = []
+
+    ref.on('value', snapshot => { // ref.on handles db changes : on(value) reads db
+      if (snapshot.exists()) 
+      {
+        for (var key in snapshot.val()) {
+ 
+          var newData = snapshot.val()[key]
+          var newItem = {
+            casekey: key,
+            caseTitle: newData.caseTitle,
+            caseDesc: newData.caseDesc,
+            caseUrl: newData.caseUrl,
+            caseDate: newData.caseDate,
+            caseTags: newData.caseTags,
+            caseImages: newData.caseImages
+          } 
+          newState.push(newItem)  
+        }
+      } 
+      else // sets placeholderinformation when there is no data to be readed
+      { 
+          newState = [{
+          casekey: 'nullkey',
+          caseTitle: 'Ainda não há nada no banco de dados',
+          caseDesc: 'Ainda não há nada no banco de dados',
+          caseUrl: 'https://www.youtube.com/watch?v=-CCVhqps6Ic',
+          caseDate: '01/01/2001',
+          caseTags: ['nothing','on the','database'],
+          caseImages: ['https://via.placeholder.com/150','https://via.placeholder.com/150','https://via.placeholder.com/150']
+         }] 
+      }
+      this.setState({
+         casesArr: newState 
       })
     })
-    
-    console.log(this.state.casesArr)
-  }
-
-  createCase = newCase => {
   }
 
  render(props) {
 
     return (
       <Layout>
-        <SEO title="Editar cases Proloc" />
-        <CasesForm />
+        <SEO title="Cases Proloc CRUD" />
+        <CasesForm writeCase = {this.writeCase}/>
         <div className="container editCases"> 
-          {console.log(this.state.casesArr)}
           {this.state.casesArr.map((renderCase, index) => {
+            let containerKey = "container"+renderCase.casekey
+            let movieKey = "movie"+renderCase.casekey
             return (
-              <MovieCase
-                title={renderCase.caseTitle}
-                text={renderCase.caseDesc}
-                date={renderCase.caseDate}
-                yUrl={renderCase.caseUrl}
-                tags={renderCase.caseTags}
-                key={index}
-              />
+                  <div className="container" key={containerKey}>
+                    <MovieCase 
+                        key={movieKey}
+                        title={renderCase.caseTitle}
+                        text={renderCase.caseDesc}
+                        date={renderCase.caseDate}
+                        yUrl={renderCase.caseUrl}
+                        tags={renderCase.caseTags}
+                        imagesArr={renderCase.caseImages}
+                    />
+                    <button type="button" className="btn btn-primary" onClick={ () => this.editCase(renderCase.casekey)}>Editar</button>
+                    <button type="button" className="btn btn-danger" onClick={ () => this.deleteCase(renderCase.casekey, renderCase.caseTitle)}>Apagar</button>
+                  </div>
             )
           })}
         </div>

@@ -1,0 +1,45 @@
+.movie-case {
+    margin: 35px 20px;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.8)
+
+}
+
+.caseLeftPanel {
+    padding: 50px 25px 50px 50px;
+    background: #242A36;
+    }
+.caseLeftPanel h4 {
+    font-family: 'Merriweather Sans', Arial, Helvetica, sans-serif !important; 
+    color: #CBCFD4; 
+    font-weight: normal !important; 
+    font-size: 10px !important;
+    text-transform: uppercase;
+}
+.caseRightPanel{
+    padding: 25px;
+    background: linear-gradient(90deg, #DE533C 10.79%, rgb(107, 91, 1) 80%), #C4C4C4;
+}
+.caseLeftPanel p { text-align: left; padding-left: 0px; }
+
+.caseLeftPanel h5 { 
+    font-size: 12px !important;
+    color: white;
+    margin-bottom: 18px;
+}
+
+.movieCaseImages { 
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.movieCaseImages img {
+    display: flex;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #444444;
+    border-radius: 5px;
+
+}
