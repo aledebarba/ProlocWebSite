@@ -1,16 +1,15 @@
-//
-// RENDERIZA A PÁGINA CASES => Acessa o firebase e recupera os casos cadastrados lá
-//
-import React, { Component } from 'react'
-import Layout from '../components/layout'
+import React, { Component } from 'react' 
+import Layout from '../components/layout' // Gatsby
 import SEO from '../components/seo'
-// Imports dos componentes da Proloc
-import Header from '../components/header'
+import Header from '../components/header' // Proloc 
 import MovieCase from '../components/moviecase'
-// Imports do Firebase
-import { configFirebase as DB_CONFIG } from '../config/config-firebase'
+import { configFirebase as DB_CONFIG } from '../config/config-firebase' //Firebase
 import firebase from 'firebase/app'
 import 'firebase/database'
+
+//
+// RENDERIZA A PÁGINA CASES => Acessa o firebase e recupera os casos cadastrados lá.
+//
 
 export default class Cases extends Component {
   constructor() {
@@ -26,26 +25,25 @@ export default class Cases extends Component {
   }
 
   componentDidMount() {
-   // Rota de para bd https://prolocdb.firebaseio.com/cases
-   var ref = this.app.database().ref('cases')
-   let newState = []
-     ref.on('value', snapshot => {
-       if (snapshot.exists()) { // se existe, cria uma matriz com todos os cases, se não existe, cria uma matriz com um único elemento placeholder
-        for (let key in snapshot.val()) {
- 
-            let newData = snapshot.val()[key]
-            let newItem = {
-            casekey: key,
-            caseTitle: newData.caseTitle,
-            caseDesc: newData.caseDesc,
-            caseUrl: newData.caseUrl,
-            caseDate: newData.caseDate,
-            caseTags: newData.caseTags,
-            caseImages: newData.caseImages
+   let ref = this.app.database().ref('cases')
+   ref.on('value', snapshot => {
+      let newState=[]
+      if (snapshot.exists()) {
+        for (let key in snapshot.val()) 
+        {
+          let newData = snapshot.val()[key]
+          let newItem = {
+              casekey: key,
+              caseTitle: newData.caseTitle,
+              caseDesc: newData.caseDesc,
+              caseUrl: newData.caseUrl,
+              caseDate: newData.caseDate,
+              caseTags: newData.caseTags,
+              caseImages: newData.caseImages
           } 
-          newState.push(newItem)  
-        }
-       } else {
+          newState.push(newItem);
+          } //endfor
+        } else {
           newState = [{
           casekey: 'nullkey',
           caseTitle: 'Ainda não há nada no banco de dados',
@@ -55,12 +53,10 @@ export default class Cases extends Component {
           caseTags: ['nothing','on the','database'],
           caseImages: ['https://via.placeholder.com/150','https://via.placeholder.com/150','https://via.placeholder.com/150']
          }] 
-       }
-       this.setState ({
-         moviePosts: newState
-       })
-     })
-  }
+        } // endif
+      this.setState ({ moviePosts: newState.reverse() }) 
+    }) // end ref.on('value')
+  } // end comonentDidMount
 
   render() {
     return (
@@ -84,7 +80,7 @@ export default class Cases extends Component {
     return this.state.moviePosts.map((project, index) => {
       return (
         <MovieCase
-            key={index}
+            key={project.casekey}
             title={project.caseTitle}
             text={project.caseDesc}
             date={project.caseDate}

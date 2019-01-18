@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/layout' // Gatsby
 import SEO from '../components/seo'
-import CasesForm from '../components/forms/casesform'
-import MovieCase from '../components/moviecase'
-
-import { configFirebase as DB_CONFIG } from '../config/config-firebase'
+import CasesForm from '../components/forms/casesform' // Proloc
+import MovieCase from '../components/moviecase' 
+import { configFirebase as DB_CONFIG } from '../config/config-firebase' // Firebase
 import firebase from 'firebase/app'
 import 'firebase/database'
+import { FaEdit } from 'react-icons/fa';
 
 export default class editCases extends Component {
   constructor(props) {
@@ -18,8 +18,8 @@ export default class editCases extends Component {
       : firebase.app() 
 
     this.state = { 
-          casesArr: []
-      }
+          casesArr: defaultEmptyState
+    }
   }
 
   writeCase = ( formCase ) => {
@@ -37,46 +37,35 @@ export default class editCases extends Component {
   editCase = (caseId) => {
     alert("not implemented yet")
   }
-  
-  componentDidMount() {
 
-    var ref = this.app.database().ref('cases') // roteia o bd
-    var newState = []
-
-    ref.on('value', snapshot => { // ref.on handles db changes : on(value) reads db
-      if (snapshot.exists()) 
-      {
-        for (var key in snapshot.val()) {
- 
-          var newData = snapshot.val()[key]
-          var newItem = {
-            casekey: key,
-            caseTitle: newData.caseTitle,
-            caseDesc: newData.caseDesc,
-            caseUrl: newData.caseUrl,
-            caseDate: newData.caseDate,
-            caseTags: newData.caseTags,
-            caseImages: newData.caseImages
-          } 
-          newState.push(newItem)  
+  readDataAndCreateNewState = () => {
+    let ref = this.app.database().ref('cases')
+    ref.on('value', snapshot => { 
+    if (snapshot.exists()) {    
+      let newState = []
+      for (let key in snapshot.val()) {
+          let newData = snapshot.val()[key]
+          let newItem = {
+             casekey: key,
+             caseTitle: newData.caseTitle,
+             caseDesc: newData.caseDesc,
+             caseUrl: newData.caseUrl,
+             caseDate: newData.caseDate,
+             caseTags: newData.caseTags,
+             caseImages: newData.caseImages
+          }
+          newState.push(newItem)
         }
-      } 
-      else // sets placeholderinformation when there is no data to be readed
-      { 
-          newState = [{
-          casekey: 'nullkey',
-          caseTitle: 'Ainda não há nada no banco de dados',
-          caseDesc: 'Ainda não há nada no banco de dados',
-          caseUrl: 'https://www.youtube.com/watch?v=-CCVhqps6Ic',
-          caseDate: '01/01/2001',
-          caseTags: ['nothing','on the','database'],
-          caseImages: ['https://via.placeholder.com/150','https://via.placeholder.com/150','https://via.placeholder.com/150']
-         }] 
+        newState.reverse()
+        this.setState({casesArr: newState})
+      } else {
+        this.setState({casesArr: defaultEmptyState})
       }
-      this.setState({
-         casesArr: newState 
-      })
-    })
+  })
+  }
+    
+  componentDidMount() {
+    this.readDataAndCreateNewState();
   }
 
  render(props) {
@@ -86,7 +75,7 @@ export default class editCases extends Component {
         <SEO title="Cases Proloc CRUD" />
         <CasesForm writeCase = {this.writeCase}/>
         <div className="container editCases"> 
-          {this.state.casesArr.map((renderCase, index) => {
+          {this.state.casesArr.map((renderCase) => {
             let containerKey = "container"+renderCase.casekey
             let movieKey = "movie"+renderCase.casekey
             return (
@@ -100,13 +89,37 @@ export default class editCases extends Component {
                         tags={renderCase.caseTags}
                         imagesArr={renderCase.caseImages}
                     />
-                    <button type="button" className="btn btn-primary" onClick={ () => this.editCase(renderCase.casekey)}>Editar</button>
-                    <button type="button" className="btn btn-danger" onClick={ () => this.deleteCase(renderCase.casekey, renderCase.caseTitle)}>Apagar</button>
+                    <div className = "row editCasesButtons justify-content-center" >
+                      <button
+                        type = "button"
+                        className = "btn btn-primary"
+                        onClick = { () => this.editCase(renderCase.casekey)}> 
+                        <FaEdit /> Editar 
+                      </button> 
+                      <button 
+                        type = "button"
+                        className = "btn btn-danger"
+                        onClick = { () => this.deleteCase(renderCase.casekey, renderCase.caseTitle)}>
+                        x Apagar 
+                      </button>
+                    </div>
                   </div>
             )
           })}
         </div>
-      </Layout>
+            </Layout>
     )
   }
 }
+
+const defaultEmptyState = [
+  {
+  casekey: 'nullkey',
+  caseTitle: 'Ainda não há nada no banco de dados',
+  caseDesc: 'Ainda não há nada no banco de dados',
+  caseUrl: 'https://www.youtube.com/watch?v=-CCVhqps6Ic',
+  caseDate: '01/01/2001',
+  caseTags: ['nothing', 'on the', 'database'],
+  caseImages: ['https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150']
+}
+];

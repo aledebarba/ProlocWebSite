@@ -158,6 +158,19 @@ overflow: hidden;
 }
 
 .editCases button {
-  border-radius: 50px;
+  border-radius: 5px;
   padding: 10px 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.75);
+
+}
+
+.editCasesButtons {  
+  margin-top: -35px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 10px;
+  box-shadow: 0px 20px 20px rgba(0,0,0,0.75);
 }

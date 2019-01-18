@@ -58,10 +58,13 @@ export default class CasesForm extends Component {
     render() {
       return (
           <React.Fragment>
-            <div  className="casesFormHeader">
-              <h4>Adição de novos Cases</h4>
-            </div>
-            <div className="container casesFormContainer">
+            <div className="container">
+              <div  className="row casesFormHeader">
+                <div className="col-12">
+                  <h4>Adição de novos Cases</h4>
+                </div>
+              </div>
+              <div className="row casesFormContainer">
               <div className="row">
                 <div className="col-6">
                   <Form 
@@ -69,8 +72,10 @@ export default class CasesForm extends Component {
                     uiSchema={uiSchema}
                     className="editCasesForm"
                     onSubmit={this.handleSubmit}>
-                    <button type="submit" className="btn btn-primary" style={{marginRight: 15}}>+ Adicionar</button>
-                    <button type="button" className="btn btn-danger" onClick={() => this.resetFields()}>x Apagar</button>
+                    <div className="editButtons">
+                      <button type="submit" className="btn btn-primary" style={{marginRight: 15}}>+ Adicionar</button>
+                      <button type="button" className="btn btn-danger" onClick={() => this.resetFields()}>x Limpar dados</button>
+                    </div>
                   </Form>
                 </div>
                 <div className="col-4"> 
@@ -85,6 +90,7 @@ export default class CasesForm extends Component {
                 
                 </div>
               </div>
+            </div>
             </div>
           </React.Fragment>
       )
