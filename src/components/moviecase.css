@@ -38,8 +38,9 @@
     display: flex;
     margin-right: 15px;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 5px;
     background-color: #444444;
     border-radius: 5px;
-
+    width: 150px;
+    height: 150px;
 }

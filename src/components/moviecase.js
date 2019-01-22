@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import './moviecase.css'
 import { FaFilm } from 'react-icons/fa'
 import CustomButton from './customButton'
+import HostedImage from './hostedImage'
 
 /* 
 Rederiza um case
@@ -14,10 +15,29 @@ Recebe e resolve:
     yUrl = url do Youtube onde está o filme final do case
 */
 
+var imagesArr = []
+
 export default class MovieCase extends Component {
 
-  render() {
+    constructor (props) {
+        super(props)
+        if (this.props.imagesArr) 
+            { imagesArr = this.props.imagesArr } 
+        else {
+            imagesArr.push('https://via.placeholder.com/150')
+            imagesArr.push('https://via.placeholder.com/150')
+            imagesArr.push('https://via.placeholder.com/150')
+            imagesArr.push('https://via.placeholder.com/150')        
+        }
 
+        imagesArr = imagesArr.map((imagemSrc) => {
+            let imgSrc = imagemSrc.replace("https://www.dropbox.com","https://dl.dropboxusercontent.com");
+                imgSrc = imgSrc.replace("dl=0","raw=1");
+            return(imgSrc) 
+        })
+    }    
+
+  render() {
     return (
         <React.Fragment>
         <div className="row justify-content-center movie-case">
@@ -29,9 +49,9 @@ export default class MovieCase extends Component {
                 <p>{this.getPostText() }</p>
                 <h4>Locações que fizeram parte desse filme</h4>
                 <div className="movieCaseImages"> 
-                    {this.props.imagesArr.map((oneImage, imageKey) => {
-                       return <img src={oneImage} alt='Locação que fez parte desse filme' key={imageKey}/>
-                    })}
+                    { 
+                        imagesArr.map( (oneImage, imageKey) => (<HostedImage src={oneImage} alt='Locação que fez parte desse filme' key={imageKey}/>))
+                    }
                 </div>                
                 {this.props.withButton && <CustomButton model='3' label='Conheça mais cases' url='/cases/' /> }
             </div>
