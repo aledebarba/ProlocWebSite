@@ -25,7 +25,6 @@ export default class Header extends Component {
   getTheBackgroundImage() {
           let hStyle = {backgroundImage:'url(https://dl.dropboxusercontent.com/s/09wrpk3qt1050p8/brasil-predio-interior.jpg?raw=1'}
           if (this.props.Src) hStyle = {backgroundImage:'url(' + this.props.Src + ')'}
-          console.log(hStyle)
           return(hStyle) 
   }
 }

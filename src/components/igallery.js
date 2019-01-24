@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Gallery from 'react-photo-gallery'
+import Lightbox from 'react-images'
+import { Mockup as PHOTO_SET } from '../config/galleyImagesMockup'
+
 // scroll-down to end of file for syntax and documentation
 
 export default class HiGallery extends Component {
@@ -9,6 +12,9 @@ export default class HiGallery extends Component {
 
     let userPhotos = this.props.photoSet ? this.props.photoSet : PHOTO_SET
     let checkboxes, alltags = []
+
+    console.log (this.props.photoSet)
+    console.log (userPhotos)
 
     userPhotos.map(item => item.usertags.split(',').map(tag => {
       let userTag = tag.trim()
@@ -21,11 +27,15 @@ export default class HiGallery extends Component {
     this.state = {
       showall: true,
       photoSet: userPhotos,
-      tagsCheckBoxes: checkboxes 
+      tagsCheckBoxes: checkboxes
     }
   }
-
+ 
+  // ---------------------------------------------------------------------
   handleCheckBoxChanges = (e) => {
+
+    this.setState ({showGallery: false})
+
     let target = e.target
     let newCheckBoxesState = this.state.tagsCheckBoxes
     let tagsToShow = []
@@ -58,32 +68,91 @@ export default class HiGallery extends Component {
 
     this.setState ({
       showall: showallimages,
+      showGallery: true,
       tagsCheckBoxes: newCheckBoxesState,
       photoSet: photosToShow
     }
     )
   }
 
+  // handle lightbox ---------------------------------------------------
+  openLightbox = (event, obj) => {
+    this.setState({
+      currentImage: obj.index,
+      lightboxIsOpen: true,
+    });
+  }
+  closeLightbox = () => {
+    this.setState({
+      currentImage: 0,
+      lightboxIsOpen: false,
+    });
+  }
+  gotoPrevious = () => {
+    this.setState({
+      currentImage: this.state.currentImage - 1,
+    });
+  }
+  gotoNext = () => {
+    this.setState({
+      currentImage: this.state.currentImage + 1,
+    });
+  }
+
   render() {
-    return <React.Fragment>
-      <div className="containe justify-content-center">
-      <h4>Selecione a categoria que deseja ver</h4>
+
+    let randomNumber = new Date().getTime()
+    let randomKey = "gallery-"+randomNumber.toString();
+
+    return (
+    <React.Fragment>
+      { !this.props.case && 
+      <>
+        <h4 style={textCenter}>Selecione as categorias que deseja ver</h4>
+        <p style={{...textCenter, ...textSmall}}>(nada selecionado mostra todas as categorias)</p>
+      </> 
+      }
+      { !this.props.notags &&
+      <>
           <form style={formStyles}>
             {this.state.tagsCheckBoxes.map( (userBtn, index) =>
-            <div style={itemStyles} key={index}>
-            <input name={userBtn.label}
-              type="checkbox"
-              checked={userBtn.value}
-              onChange={this.handleCheckBoxChanges} />
-              <label style={labelStyle}>&nbsp;{userBtn.label}</label>
-            </div>)}            
+              <div style={itemStyles} key={index}>
+              <input name={userBtn.label}
+                type="checkbox"
+                checked={userBtn.value}
+                onChange={this.handleCheckBoxChanges} />
+                <label style={labelStyle}>&nbsp;{userBtn.label}</label>
+              </div>)}            
           </form>
-          <div style={{marginTop: 50, marginBottom: 50}}>
-            <Gallery photos={this.state.photoSet} />
-          </div>
+      </> }
+      <div 
+        className={this.props.small ? 'imageGallerySmall' : 'imageGalleryDefault'}
+        key={randomKey} >
+        
+         <Gallery 
+          photos={this.state.photoSet} 
+          onClick={this.openLightbox} 
+          style={{width: 50, height: 50}} /> 
+        <Lightbox 
+          images={this.state.photoSet}
+          onClose={this.closeLightbox}
+          onClickPrev={this.gotoPrevious}
+          onClickNext={this.gotoNext}
+          currentImage={this.state.currentImage}
+          isOpen={this.state.lightboxIsOpen} />
       </div>
       </React.Fragment>
-  }
+  )}
+}
+
+// styles
+
+const textCenter = {
+  textAlign: "center"
+}
+
+const textSmall = {
+  fontSize: 8,
 }
 
 const labelStyle = {
@@ -92,79 +161,24 @@ const labelStyle = {
 }
 const formStyles = {
   color: "white",
+  flexWrap: "wrap",
   display: "flex",
+  justifyContent: "center",
   fontSize: 12
 }
 
 const itemStyles = {
-  marginRight: 10
+  marginRight: 10,
+  marginTop: 15,
+  paddingLeft: 5,
+  paddingRight: 8,
+  paddingTop: 8,
+  paddingBottom: 0,
+  display: "block",
+  backgroundColor: "rgb(230,88,66)",
+  borderRadius: 5,
+  boxShadow: "5px 5px 5px rgba(0,0,0,0.8)"
 }
-
-const PHOTO_SET = [
-  {
-    src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
-    width: 4,
-    height: 3,
-    alt: "locação da Proloc ",
-    usertags: "interna, casa"
-  },
-  {
-    src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
-    width: 1,
-    height: 1,
-    alt: "locação da Proloc ",
-    usertags: "externa, cidade"
-  },
-  {
-    src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
-    width: 3,
-    height: 4,
-    alt: "locação da Proloc ",
-    usertags: "interna, casa, cozinha"
-  },
-  {
-    src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
-    width: 3,
-    height: 4,
-    alt: "locação da Proloc ",
-    usertags: "interna, casa, sala"
-  },
-  {
-    src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
-    width: 3,
-    height: 4,
-    alt: "locação da Proloc ",
-    usertags: "externa, cidade"
-  },
-  {
-    src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
-    width: 4,
-    height: 3,
-    alt: "locação da Proloc ",
-    usertags: "externa, estrada, campo"
-  },
-  {
-    src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
-    width: 3,
-    height: 4,
-    alt: "locação da Proloc ",
-    usertags: "externa, praia"
-  },
-  {
-    src: "https://source.unsplash.com/PpOHJezOalU/800x599",
-    width: 4,
-    height: 3,
-    alt: "locação da Proloc ",
-    usertags: "interna, casa, cozinha"
-  },
-  {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
-    width: 4,
-    height: 3,
-    alt: "locação da Proloc ",
-    usertags: "externa, casa, piscina"
-  }
-];
 
 /* syntax
 1. Basic

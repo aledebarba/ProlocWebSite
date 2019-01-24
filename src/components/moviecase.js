@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './moviecase.css'
 import { FaFilm } from 'react-icons/fa'
 import CustomButton from './customButton'
-import HostedImage from './hostedImage'
+import HiGallery from './igallery'
 
 /* 
 Rederiza um case
@@ -15,12 +15,12 @@ Recebe e resolve:
     yUrl = url do Youtube onde está o filme final do case
 */
 
-var imagesArr = []
-
 export default class MovieCase extends Component {
 
     constructor (props) {
         super(props)
+        // caso o componente não receba um array, mostra um mockup
+        var imagesArr = []
         if (this.props.imagesArr) 
             { imagesArr = this.props.imagesArr } 
         else {
@@ -30,12 +30,26 @@ export default class MovieCase extends Component {
             imagesArr.push('https://via.placeholder.com/150')        
         }
 
-        imagesArr = imagesArr.map((imagemSrc) => {
-            let imgSrc = imagemSrc.replace("https://www.dropbox.com","https://dl.dropboxusercontent.com");
-                imgSrc = imgSrc.replace("dl=0","raw=1");
-            return(imgSrc) 
-        })
-    }    
+        // trata os dados recebidos e transforma para o formato adequado para HiGallery
+        var imagesGalleryArray = []
+        imagesArr.forEach(imageName => {
+            let myurl = imageName.replace("https://www.dropbox.com","https://dl.dropboxusercontent.com");
+                myurl = myurl.replace("dl=0","raw=1");
+                              
+                imagesGalleryArray.push(
+                {
+                    src: myurl,
+                    width: 1,
+                    height: 1,
+                    alt: "locação da Proloc",
+                    usertags: this.props.tags.join()
+                })
+            })
+   
+        this.state = {
+            images: imagesGalleryArray 
+        }
+    }
 
   render() {
     return (
@@ -45,13 +59,10 @@ export default class MovieCase extends Component {
                 <h5><FaFilm style={{marginRight: "15px"}}/>{this.props.date}</h5>
                 <h3>{this.props.title }</h3>
                 <h5>{this.getTags()}</h5>
-
                 <p>{this.getPostText() }</p>
                 <h4>Locações que fizeram parte desse filme</h4>
                 <div className="movieCaseImages"> 
-                    { 
-                        imagesArr.map( (oneImage, imageKey) => (<HostedImage src={oneImage} alt='Locação que fez parte desse filme' key={imageKey}/>))
-                    }
+                    <HiGallery photoSet={this.state.images} small case notags />
                 </div>                
                 {this.props.withButton && <CustomButton model='3' label='Conheça mais cases' url='/cases/' /> }
             </div>

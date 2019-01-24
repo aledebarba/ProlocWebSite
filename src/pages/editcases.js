@@ -22,6 +22,7 @@ export default class editCases extends Component {
     }
   }
 
+  // CRUD --------------------------------------------------------------------
   writeCase = ( formCase ) => {
     var ref = this.app.database().ref('cases') // roteia o bd
     ref.push().set(formCase)
@@ -63,7 +64,8 @@ export default class editCases extends Component {
       }
   })
   }
-    
+  
+  // -----------------------------------------------------------------------
   componentDidMount() {
     this.readDataAndCreateNewState();
   }
