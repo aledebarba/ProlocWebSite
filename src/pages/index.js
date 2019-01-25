@@ -6,23 +6,15 @@ import HomeCarousel from '../components/homeCarousel';
 import HomeMovieSection from '../components/homeMovieSection';
 import TeamSection from '../components/teamSection';
 import CallToAction from '../components/callToAction';
-import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
 
 class IndexPage extends Component {
 
     render() {
-
-    configureAnchors({ offset: -60, scrollDuration: 1000 })
-
     return (
         <Layout>
             <SEO title="Home" />
-            <ScrollableAnchor id={'topnavbar'}>
-                <Jumbotron title="Bem vindos." lead="Somos a PROLOC. Peritos em encontrar locações de filmagem perfeitas para seu projeto. De modo rápido e descomplicado, porque nós sabemos bem o que é uma produção de filme." />
-            </ScrollableAnchor>
-            <ScrollableAnchor id={'carousel'}>
-                <HomeCarousel />
-            </ScrollableAnchor>
+            <Jumbotron title="Bem vindos." lead="Somos a PROLOC. Peritos em encontrar locações de filmagem perfeitas para seu projeto. De modo rápido e descomplicado, porque nós sabemos bem o que é uma produção de filme." />
+            <HomeCarousel />
             <HomeMovieSection />
             <TeamSection />
             <CallToAction

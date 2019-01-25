@@ -1,60 +1,92 @@
-import React, { Component } from 'react'
-import Logo from '../images/Menu Logo.png'
-import './nav.css'
+import React from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink} from 'reactstrap';
+import logo from '../images/Menu Logo.png'
 
-export default class Nav extends Component {
+const styles = {
+  button: {
+    border: "1px solid #999999",
+    borderRadius: "50px",
+    paddingRight: "20px",
+    paddingLeft: "20px",
+    paddingTop: "5px",
+    paddingBottom: "5px",
+    marginTop: "5px",
+    display: "inline" },
+
+  buttonHover: {
+    border: "1px solid #ffffff",
+    borderRadius: "50px",
+    paddingRight: "20px",
+    paddingLeft: "20px",
+    paddingTop: "5px",
+    paddingBottom: "5px",
+    marginTop: "5px",
+    color: "black",
+    backgroundColor: "white",
+    display: "inline"
+  } 
+};
+
+export default class Example extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false,
+      loginHover: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
   render() {
     return (
-      <nav className="navbar navbar-expand-lg mainMenu fixed-top">
-          <a className="navbar-brand" href="/">
-            <img src={Logo} alt="Marca da Proloc"/>
-          </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="/">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/quemsomos/">
-                Quem somos
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/cases/">
-                Cases
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/catalogo/">
-                Catalogo
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/contato/">
-                Contato
-              </a>
-            </li>
-            <li className="nav-item asButton">
-              <a className="nav-link" href="/login/">
-                Login
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    )
+      <div>
+        <Navbar dark fixed="top" expand="md" style={{
+          backgroundColor: "rgba(30,30,30,0.85)",
+          boxShadow: "0px 5px 10px rgba(0,0,0,0.6)",
+          fontSize: "0.8em",
+        }}>
+          <NavbarBrand href="/"><img src={logo} alt="Logo Proloc"/></NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/quemsomos">Quem somos</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/cases">Cases</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/catalogo">Catálogo</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/contato">Contato</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink 
+                    href="login"
+                    style={ this.state.buttonHover ? styles.buttonHover : styles.button }
+                    onMouseEnter ={ () => this.setState({buttonHover:true})  }
+                    onMouseLeave ={ () => this.setState({buttonHover:false}) }
+                    >
+                    Login
+              </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+    );
   }
 }

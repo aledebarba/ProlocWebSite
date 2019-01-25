@@ -13,9 +13,6 @@ export default class HiGallery extends Component {
     let userPhotos = this.props.photoSet ? this.props.photoSet : PHOTO_SET
     let checkboxes, alltags = []
 
-    console.log (this.props.photoSet)
-    console.log (userPhotos)
-
     userPhotos.map(item => item.usertags.split(',').map(tag => {
       let userTag = tag.trim()
       if (alltags.indexOf(userTag) === -1) {alltags.push(userTag)}

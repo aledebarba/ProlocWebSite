@@ -1,13 +1,31 @@
 .movie-case {
-    margin: 35px 20px;
+    margin: 100px 20px;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.8)
-
 }
 
 .caseLeftPanel {
     padding: 50px 25px 50px 50px;
     background: #242A36;
     }
+
+
+@media (max-width: 1200px) {
+    .movie-case {
+        margin: 50px 20px;
+        box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.8)
+    }
+    .caseLeftPanel {
+        padding: 25px;
+        background: #242A36;
+    }
+    }
+
+    @media (max-width: 460px) {
+        .caseLeftPanel {
+            padding: 15px;
+            background: #242A36;
+        }
+}
 .caseLeftPanel h4 {
     font-family: 'Merriweather Sans', Arial, Helvetica, sans-serif !important; 
     color: #CBCFD4; 

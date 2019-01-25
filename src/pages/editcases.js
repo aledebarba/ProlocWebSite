@@ -25,7 +25,7 @@ export default class editCases extends Component {
   // CRUD --------------------------------------------------------------------
   writeCase = ( formCase ) => {
     var ref = this.app.database().ref('cases') // roteia o bd
-    ref.push().set(formCase)
+    ref.push().set(formCase) // grava
   }
 
   deleteCase = (caseId, caseTitle) => {
@@ -66,6 +66,7 @@ export default class editCases extends Component {
   }
   
   // -----------------------------------------------------------------------
+  
   componentDidMount() {
     this.readDataAndCreateNewState();
   }

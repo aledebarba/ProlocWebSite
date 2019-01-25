@@ -55,7 +55,7 @@ export default class MovieCase extends Component {
     return (
         <React.Fragment>
         <div className="row justify-content-center movie-case">
-            <div className="col-md-6 caseLeftPanel">
+            <div className="col-md-12 col-lg-6 caseLeftPanel">
                 <h5><FaFilm style={{marginRight: "15px"}}/>{this.props.date}</h5>
                 <h3>{this.props.title }</h3>
                 <h5>{this.getTags()}</h5>
@@ -66,7 +66,7 @@ export default class MovieCase extends Component {
                 </div>                
                 {this.props.withButton && <CustomButton model='3' label='Conheça mais cases' url='/cases/' /> }
             </div>
-            <div className="col-md-6 caseRightPanel">
+            <div className="col-md-12 col-lg-6 caseRightPanel">
                 <div className="videoWrapper">
                     <iframe title="movie" src={this.getYoutubeURL()} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>

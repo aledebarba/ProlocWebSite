@@ -70,7 +70,9 @@ export default class Cases extends Component {
             sua produção.
           </p>
         </Header>
-        {this.getMoviePosts()}}
+        <div className="casesContainer" >
+           {this.getMoviePosts()}}
+        </div>
       </Layout>
     )
   }
@@ -78,9 +80,10 @@ export default class Cases extends Component {
   getMoviePosts() {
     // mapeia o estado e renderiza os componentes MovieCase
     return this.state.moviePosts.map((project, index) => {
+      let uniquekey = "cases-" + (new Date().getTime()).toString() + index.toString()
       return (
         <MovieCase
-            key={project.casekey}
+            key={uniquekey}
             title={project.caseTitle}
             text={project.caseDesc}
             date={project.caseDate}

@@ -15,10 +15,10 @@ export default class HomeCarousel extends React.PureComponent {
   }
 
   onSelect = (active, direction) => {
-    console.log(`active=${active} && direction=${direction}`);
+    // console.log(`active=${active} && direction=${direction}`);
   };
   visiableOnSelect = active => {
-    console.log(`visiable onSelect active=${active}`);
+    // console.log(`visiable onSelect active=${active}`);
   };
   slideNext = () => {
     this.slider.slideNext();

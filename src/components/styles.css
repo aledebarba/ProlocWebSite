@@ -220,3 +220,32 @@ h3, h4, h5 { font-size: 12px !important; font-weight: bold;}
   animation-name: imgFadeIn;
   animation-duration: 3s;
  }
+
+ .casesContainer {
+   width: 85%;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+@media (min-width: 1200) {
+  .casesContainer {
+    width: 90%;
+  }
+}
+
+@media (min-width: 460) {
+  .casesContainer {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.homeMovieSection h1, p {
+  text-align: center;
+  padding: 10px 50px;
+}
+
+.homeMovieSection {
+  margin-top: 100px;
+}

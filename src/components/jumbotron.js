@@ -10,7 +10,7 @@ const Jumbotron = (props) => (
                     <h1>{props.title}</h1>
                     <p className="lead">{props.lead}</p>
                     <hr className="my-4" />
-                    <a className="styled-button-1" href="/#carousel">Conheça a gente&nbsp;<FaAngleDown /></a>
+                    <a className="styled-button-1" href="/#carousel">Saiba Mais&nbsp;<FaAngleDown /></a>
                 </div>
             </div>
         </div>
