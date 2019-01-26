@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './styles.css'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
+import Nav from './nav'
+import Footer from './footer'
+import 'bootstrap/dist/css/bootstrap-proloc.css'
+
 
 const Layout = ({ children }) => (
   <StaticQuery

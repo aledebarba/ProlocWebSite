@@ -1,6 +1,6 @@
+
 import React from 'react';
 import Layout from '../components/layout';
-import '../components/teamSection.css'
 import TeamCard from '../components/teamCard'
 import CallToAction from '../components/callToAction'
 import Header from '../components/header'

@@ -19,7 +19,7 @@ const Footer = () => (
                 <div className='col-md-2 footerCol'>
                 <h3>Navegação</h3>
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/index/">Home</a></li>
                     <li><a href="/quem-somos/">Quem Somos</a></li>
                     <li><a href="/cases/">Cases</a></li>
                     <li><a href="/catalogo/">Catalogo</a></li>

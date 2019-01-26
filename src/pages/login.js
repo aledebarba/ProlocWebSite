@@ -1,8 +1,10 @@
+
 import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PlaceHolder from '../components/placeholder'
 import Header from '../components/header'
+
 
 const SecondPage = () => (
   <Layout>
