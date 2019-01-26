@@ -3,18 +3,14 @@
     margin: 50px auto;
     text-align: center;
     position: relative;
+    width: 70%;
 }
-
-.homeCarousel img {
-    width: 320px;
-    height: 240px;
-}
-
+    
 .homeCarousel h1 {
     font-style: normal;
     font-weight: normal;
     color: #A0D2E9;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     padding: 20px 10px 0px 20px;
 }
@@ -23,40 +19,12 @@
     color: #CBCFD4;
     font-size: 14px;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
     padding: 20px;
  }
 
  .homeCarousel lead { display: none; }
 
-@media (min-width: 760px) {
-    .homeCarousel img {
-        width: 640px;
-        height: 480px;
-    }
 
-    .homeCarousel h1 {
-        font-weight: normal;      
-        padding: 10px 0px;
-        text-align: center;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.65);
-    }
-    .homeCarousel p { 
-        text-align: center;
-        margin-bottom: 20px;
-     }
-}
 
-@media (min-width: 1200px) {
-    .homeCarousel img {
-        width: 900px;
-        height: 675px;
-    }
-}
-
-@media (min-width: 1400px){
-.homeCarousel img {
-    width: 1024px;
-    height: 768px;
-}}
 

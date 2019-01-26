@@ -9,30 +9,6 @@ import {
   NavLink} from 'reactstrap';
 import logo from '../images/Menu Logo.png'
 
-const styles = {
-  button: {
-    border: "1px solid #999999",
-    borderRadius: "50px",
-    paddingRight: "20px",
-    paddingLeft: "20px",
-    paddingTop: "5px",
-    paddingBottom: "5px",
-    marginTop: "5px",
-    display: "inline" },
-
-  buttonHover: {
-    border: "1px solid #ffffff",
-    borderRadius: "50px",
-    paddingRight: "20px",
-    paddingLeft: "20px",
-    paddingTop: "5px",
-    paddingBottom: "5px",
-    marginTop: "5px",
-    color: "black",
-    backgroundColor: "white",
-    display: "inline"
-  } 
-};
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -41,22 +17,23 @@ export default class Example extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      loginHover: false
+      loginHover: false,
+      buttonIsOpen: { display: "block" }
     };
   }
   toggle() {
+    let newState = this.state.isOpen ? { display: "block", border: "1px solid #999999" } : { display: "inline-block", border: "none" }
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
+      buttonIsOpen: newState
     });
   }
+
   render() {
+
     return (
       <div>
-        <Navbar dark fixed="top" expand="md" style={{
-          backgroundColor: "rgba(30,30,30,0.85)",
-          boxShadow: "0px 5px 10px rgba(0,0,0,0.6)",
-          fontSize: "0.8em",
-        }}>
+        <Navbar dark fixed="top" expand="md" style={styles.navbar}>
           <NavbarBrand href="/"><img src={logo} alt="Logo Proloc"/></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -76,7 +53,7 @@ export default class Example extends React.Component {
               <NavItem>
                 <NavLink 
                     href="login"
-                    style={ this.state.buttonHover ? styles.buttonHover : styles.button }
+                    style={this.state.buttonHover ? {...styles.button, ...styles.buttonHover, ...this.state.buttonIsOpen } : {...styles.button, ...styles.isOpen, ...this.state.buttonIsOpen } }
                     onMouseEnter ={ () => this.setState({buttonHover:true})  }
                     onMouseLeave ={ () => this.setState({buttonHover:false}) }
                     >
@@ -90,3 +67,19 @@ export default class Example extends React.Component {
     );
   }
 }
+//--------------------------- STYLES ------------------------
+const styles = {
+  button: {
+    border: "1px solid #999999",
+    borderRadius: 10 },
+  buttonHover: {
+    border: "1px solid #ffffff",
+    color: "black",
+    backgroundColor: "white",
+  },
+  navbar: {
+    backgroundColor: "rgba(30,30,30,0.85)",
+    boxShadow: "0px 5px 10px rgba(0,0,0,0.6)",
+    fontSize: "0.8em",
+  }
+};
