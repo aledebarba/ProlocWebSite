@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Nav from './nav'
 import Footer from './footer'
-//import './prolocStyles.css'
-
 
 const Layout = ({ children }) => (
   <StaticQuery

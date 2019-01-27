@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 sintax
 <Header 
   title="Lorem impsun doren sit amet."
-  Src="http://source.file.com/imagename.jpg" >
+  Src="http://source.file.com/imagename.jpg" > 
   <p>Some other elements</p>
 </Header>
 */
