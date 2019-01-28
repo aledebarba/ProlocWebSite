@@ -6,33 +6,37 @@ body {
   }
   
   p, a, a:hover, span {font-family: 'Merriweather Sans', Arial, Helvetica, sans-serif !important; color: #CBCFD4; font-weight: normal !important; }
-  h1, h2, h3, h4, h5 { font-family: 'Merriweather', 'Times New Roman', Times, serif; color: #A0D2E9; }
+  h1, h2, h3, h4, h5 { font-family: 'Merriweather', 'Times New Roman', Times, serif; color: #A0D2E9;}
   
   @media(min-width: 320px) {
-  p { font-size: 14px !important;}
-  h1 { font-size: 24px !important; }
+  p { font-size: 16px !important;}
+  h1 { font-size: 38px !important; margin-top: 20px; margin-bottom: 20px }
   h2 { font-size: 16px !important; }
-  h3, h4, h5 { font-size: 12px !important; font-weight: bold;}
+  h3, h4, h5 { font-size: 14px !important; font-weight: bold;}
+  h5 { font-size: 18px !important }
   }
   
   @media(min-width: 760px) {
     p {font-size: 16px !important; font-weight: normal !important;}
     h1 {font-size: 38px !important; }
     h2 {font-size: 18px !important;}
-    h3, h4, h5 { font-size: 14px !important; font-weight: normal !important;}
-  }
+    h3, h4 { font-size: 14px !important; font-weight: normal !important;}
+    h5 { font-size: 20px !important }
+}
   
   @media(min-width: 1020px) {
     p {font-size: 18px !important; font-weight: normal !important;}
     h1 {font-size: 42px !important; font-weight: norma !important;}
     h2 {font-size: 24px !important;}
-    h3, h4, h5 { font-size: 18px !important;} 
+    h3, h4 { font-size: 18px !important;} 
+    h5 { font-size: 24px !important }
   }
   
   @media(min-width: 1150px) {
     h1 {font-size: 56px !important;}
     h2 {font-size: 42px !important;}
-    h3, h4, h5 { font-size: 24px !important;}
+    h3, h4  { font-size: 20px !important;}
+    h5 { font-size: 28px !important }
     
   }
   
@@ -40,7 +44,7 @@ body {
     
   }
   
-  .styled-button-1 {
+ .styled-button-1 {
     background: linear-gradient(90deg, #DE533C 10.79%, #A73313 92.45%), #C4C4C4;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
@@ -103,6 +107,7 @@ body {
   @media(min-width: 1024px) {.siteHeader { padding: 100px 200px;}}
   @media(min-width: 1400px) {.siteHeader { padding: 200px 100px 100px 200px;}}
   @media(min-height: 1024px) {.siteHeader { height: 60vh; }}
+
   .siteHeader h1 { 
     text-align: left;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.50);
@@ -110,8 +115,11 @@ body {
   
   .siteHeader p {
     text-align: left;
-    padding: 0px 0px 0px 5px; /* visual correction */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.50);
+    padding: 10px 10px 10px 10px; 
+    margin-left: -10px;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+    background-color: rgb(0, 36, 44, 0.45);
+    border-radius: 5px;
   }
   
   .quemsomos p {
@@ -248,41 +256,11 @@ body {
     margin-top: 100px;
   }
 
-  .team-section {
-    margin: 30px 0px;
-    background: #242A36;
-    box-shadow: 0px -30px 40px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    padding: 50px 20px;
-    margin: 50px 0px;
-}
-
 .team-section .card-container {
     width: 90%;
     margin: 0px auto;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.team-section .card {
-    background: #443D3F;
-    box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
-    text-align: center;
-    margin: 30px 50px;
-    padding: 10px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.50);
-}
-
-.team-section .card img {
-
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin: 20px auto;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.50);
-    border: solid 1px salmon;
-
 }
 
 .teamButton {
@@ -482,16 +460,11 @@ body {
     
 }
 
-@media (min-width: 768px {
+@media (min-width: 768px) {
   .style-button-3 {
       display: block;
   }  
 } 
-
-.footer {
-    background-color: #242A36;
-    padding: 40px;
-}
 
 .footer p {
     font-family: 'MerriWeather Sans', Arial, Helvetica, sans-serif;
@@ -594,3 +567,71 @@ body {
     padding: 0px;
 }
 
+
+.casesFormHeader {
+    margin: 0 50px;
+    background: #465C2F;
+    margin-top: 100px !important;
+    border-radius: 10px;
+    box-shadow: 0px -10px 40px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+}
+
+.casesFormHeader h4 { 
+    text-align: center !important;
+ }
+
+.casesFormContainer {
+    background: linear-gradient(180deg, #866F1C 55.37%, #465C2F 100%);
+    box-shadow: 0px -10px 40px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    margin-top: -10px !important;
+    padding: 20px;
+}
+
+.casesFormHeader h4 {
+    text-align: center !important;
+    padding: 20px;
+}
+
+.casesFormContainer ul {
+    margin-top: 50px;
+}
+.casesFormContainer li {
+    font-family: 'Merriweather Sans', Arial, Helvetica, sans-serif !important;
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-align: left;
+    font-weight: 300 !important;
+    color: rgb(202, 202, 202);
+    font-size: 0.8em;
+    line-height: 1.2;
+}
+
+.editCasesForm label {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.editCasesForm h1 {
+    color: white;
+    font-weight: bold;
+}
+
+.editCasesForm p {
+    text-align: left !important;
+    margin: 0 0 20px 0;
+    padding:0;
+}
+
+.editCasesForm legend {
+    color: white;
+    margin-bottom: 0px;
+    margin-top: 50px;
+}
+
+.editButtons button {
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5)
+}

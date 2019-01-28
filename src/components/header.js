@@ -14,7 +14,7 @@ export default class Header extends Component {
     return (
       <div className="container-fluid siteHeader justify-content-center" style={this.getTheBackgroundImage()}>
         <div className="row">
-          <div className="col-xs-12 col-sm-6"><h1>{this.props.title}</h1>
+          <div className="col-xs-12 col-sm-12 col-md-8 col-xl-6"><h1>{this.props.title}</h1>
             {this.props.children}</div>
         </div>
       </div>

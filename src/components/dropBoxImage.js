@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 
 export default class DropBoxImage extends Component {
 
-    render() { return <img src={this.handleImageURL()} alt=""/> }
+    render() { 
+      
+      return (
+                <img 
+                  src={this.handleImageURL()} 
+                  alt="" 
+                  /> 
+
+      )}
 
   handleImageURL() {
         let dbimg = this.props.src ? this.props.src : "https://picsum.photos/300"

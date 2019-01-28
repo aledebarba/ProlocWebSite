@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Form from "react-jsonschema-form"
-// form css and form json schemas objects
-import './forms.css'
 import {schema, uiSchema} from './casesFormSchemas'
 
 export default class CasesForm extends Component {

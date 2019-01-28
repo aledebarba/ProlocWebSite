@@ -1,10 +1,9 @@
-
 import React, { Component } from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Header from '../components/header';
 import PlaceHolder from '../components/placeholder';
-import ContactForm from '../components/forms/contactForm'
+import ContactForm from '../components/contactForm'
 import axios from 'axios'
 
 const API_PATH = 'http://proloc.uxdir.com/emailapi/index.php';
@@ -44,7 +43,6 @@ export default class Contato extends Component {
     </Header>
     <div className="container">
       <div className="row">
- 
         <PlaceHolder title="google maps" />
       </div>
       <div className="row">

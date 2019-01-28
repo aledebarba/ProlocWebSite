@@ -1,54 +1,86 @@
 import React from 'react'
 import Logo from '../images/Logo@2x.png';
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
-import './footer.css'
+import styled from 'styled-components'
 import CustomButton from './customButton';
 
+const FooterSection = styled.div`
+    background-color:  #242A36;
+    padding: 40px;`
+
+const FooterCol = styled.div`
+    padding: 10px;
+    margin-top: 25px;
+`
+
+const Text = styled.p`
+    font-size: 14px !important;
+    text-align: left;
+    padding: 0;
+    margin:0;
+`
+
+const CopyrightSection = styled.div`
+    background: #693121;
+    box-shadow: 0px -15px 40px rgba(0, 0, 0, 0.55);
+    color: white;
+    padding: 30px;
+    text-align: center;`
+
+const FooterNav = styled.ul`
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+`
+    
 const Footer = () => (
     <React.Fragment>
-        <div className="container-fluid footer">
+        <FooterSection className="container-fluid">
           <div className="row justify-content-center">
-                <div className='col-md-4 footerCol'>
-                    <h3><img src={Logo} alt="Logo da Proloc"/></h3>
-                    <p>Somos especializados em locações. Trabalhamos com mais de 10.000 locais por todo o Brasil. Acompanhamos constantemente sua produção, para que todas as necessidades do trabalho sejam cumpridas, e após a realização, fazemos a entrega de contratos e recibos de pagamento, para que não haja nenhum problema jurídico, inclusive junto aos órgãos competentes, como departamentos de trânsito e prefeituras.​</p>
-                </div>
-                <div className='col-md-4 footerCol'>
+                <FooterCol className='col-md-4 col-sm-6'>
+                    <h3>
+                        <img src={Logo} alt="Logo da Proloc"/>
+                    </h3>
+                    <Text>
+                        Somos especializados em locações. Trabalhamos com mais de 10.000 locais por todo o Brasil. Acompanhamos constantemente sua produção, para que todas as necessidades do trabalho sejam cumpridas, e após a realização, fazemos a entrega de contratos e recibos de pagamento, para que não haja nenhum problema jurídico, inclusive junto aos órgãos competentes, como departamentos de trânsito e prefeituras.​
+                    </Text>
+                </FooterCol>
+                <FooterCol className='col-md-4 col-sm-6'>
                     <h3>Nota Legal</h3>
-                    <p>Todo o conteúdo deste site te m direitos reservados, no Brasil, de acordo com a Lei dos Direitos do Autor (LEI Nº 9.610, DE 19 DE FEVEREIRO DE 1998), e internacionalmente pela Convenção de Berna, de 9 de Setembro de 1886, Decreto 75.699/75. Antes de reproduzir qualquer conteúdo do site, entre em contato pelo email contato@proloc.com.br e solicite autorização formal.</p>
-                </div>
-                <div className='col-md-2 footerCol'>
+                        <Text>
+                            Todo o conteúdo deste site te m direitos reservados, no Brasil, de acordo com a Lei dos Direitos do Autor (LEI Nº 9.610, DE 19 DE FEVEREIRO DE 1998), e internacionalmente pela Convenção de Berna, de 9 de Setembro de 1886, Decreto 75.699/75. Antes de reproduzir qualquer conteúdo do site, entre em contato pelo email contato@proloc.com.br e solicite autorização formal.
+                        </Text>
+                </FooterCol>
+                <FooterCol className='col-md-2 col-sm-6'>
                 <h3>Navegação</h3>
-                <ul>
-                    <li><a href="/index/">Home</a></li>
-                    <li><a href="/quem-somos/">Quem Somos</a></li>
-                    <li><a href="/cases/">Cases</a></li>
-                    <li><a href="/catalogo/">Catalogo</a></li>
-                    <li><a href="/contato/">Contato</a></li>
-                    <li><a href="/login/">Login</a></li>
-                </ul>
-                </div>          
-                <div className='col-md-2 footerCol'>
+                    <FooterNav>
+                        <li><a href="/index/">Home</a></li>
+                        <li><a href="/quem-somos/">Quem Somos</a></li>
+                        <li><a href="/cases/">Cases</a></li>
+                        <li><a href="/catalogo/">Catalogo</a></li>
+                        <li><a href="/contato/">Contato</a></li>
+                        <li><a href="/login/">Login</a></li>
+                    </FooterNav>
+                </FooterCol>          
+                <FooterCol className='col-md-2 col-sm-6'>
                      <h3>Redes Sociais</h3>
-                    <ul>
+                    <FooterNav>
                         <li><FaFacebook className="footerIcons"/>&nbsp;<a href="/">Facebook</a></li>
                         <li><FaTwitter className="footerIcons"/>&nbsp;<a href="/">Twitter</a></li>
                         <li><FaInstagram className="footerIcons"/>&nbsp;<a href="/">Instagram</a></li>
                         <li><FaYoutube className="footerIcons"/>&nbsp;<a href="/">Youtube</a></li>
-                    </ul>
-                </div>
+                    </FooterNav>
+                </FooterCol>
           </div>
-        </div>
-        <div className="container-fluid footer-copyright">
+        </FooterSection>
+        <CopyrightSection className="container-fluid">
             <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <h4>Copyright: Todos os direitos reservados para Proloc</h4>
-                </div>
-                <div className="col-md-4">
-                    <CustomButton label="Voltar ao topo" url="/#topnavbar" />
-                </div>
+                <h4>Copyright: Todos os direitos reservados para Proloc</h4>
             </div>
-            
-       </div>
+            <div className="row justify-content-center">
+                <CustomButton label="Voltar ao topo" url="/#topnavbar"/>
+            </div>
+       </CopyrightSection>
     </React.Fragment>
 )
 

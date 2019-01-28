@@ -1,8 +1,7 @@
-
 import React, { Component } from 'react'
 import Layout from '../components/layout' // Gatsby
 import SEO from '../components/seo'
-import CasesForm from '../components/forms/casesform' // Proloc
+import CasesForm from '../components/casesform' // Proloc
 import MovieCase from '../components/moviecase' 
 import { configFirebase as DB_CONFIG } from '../config/config-firebase' // Firebase
 import firebase from 'firebase/app'
