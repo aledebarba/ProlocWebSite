@@ -9,8 +9,8 @@ const palette = {
     lightgray: "#7B8993",
     gray: "#443D3F",
     grey: "#443D3F",
-    darkgrey: "#7B8993",
-    darkgray: "#7B8993",
+    darkgrey: "#242A36",
+    darkgray: "#242A36",
     
     white: "#F6F4FA",
     

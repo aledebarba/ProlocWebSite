@@ -2,11 +2,15 @@ export const Mockup = [
     {
       src: "https://dl.dropboxusercontent.com/s/iwrcss7zb5kuefi/proloc%20gallery%201.jpg?raw=1",
       alt: "locação da Proloc ",
+      width: 4,
+      height: 3,
       usertags: "externa, estrada, viaduto, carros"
     },
     {
       src: "https://dl.dropboxusercontent.com/s/nf5zj8xvu3v1jnj/proloc%20gallery%2010.jpg?raw=1",
       alt: "locação da Proloc ",
+      width: 3,
+      height: 4,
       usertags: "interna, casa, piscina"
     },
     {
