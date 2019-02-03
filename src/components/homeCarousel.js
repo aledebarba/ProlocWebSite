@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './homeCarousel.css'
+import { Link, Element } from 'react-scroll'
+import { FaAngleDown } from  'react-icons/fa'
 import {
   Carousel,
   CarouselItem,
@@ -7,6 +9,18 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
+import styled from 'styled-components'
+
+const Title = styled.h1`
+  text-align: center;
+  font-weight: normal !important;
+  margin: 0;
+  padding: 0;
+`
+const Text = styled.p`
+  text-align: center;
+  margin:0;
+`
 
 class HomeCarousel extends Component {
   constructor(props) {
@@ -46,7 +60,6 @@ class HomeCarousel extends Component {
 
   render() {
     const { activeIndex } = this.state;
-
     const slides = items.map((item) => {
       return (
         <CarouselItem
@@ -62,18 +75,26 @@ class HomeCarousel extends Component {
 
     return (
       <div className="homeCarousel">
-      <h1 style={{textAlign:"center"}}>Catálogo irretocável</h1>
-      <p>Locações em todo o Brasil. Os mais diversos cenários para sua produção.</p>
+      <Element name="Carousel">
+        <Title>Especialistas em locações</Title>
+      </Element>
+      <Text>Nosso catálogo conta com Locações de todo o Brasil. Cenários dos mais diversos, ambientes memorávais e uma base de dados detalhada sobre cada lugar. Nossa equipe é especializada em produção e está aqui para agilizar processos e auxiliar em suas tomadas de decisão. <br/>Vá em frente, conheça mais da Proloc.
+        <Link to="CarouselImages" smooth>
+          <FaAngleDown />  
+        </Link>
+        </Text>
+      <Element name="CarouselImages" />
       <Carousel
         activeIndex={activeIndex}
         next={this.next}
         previous={this.previous}
       >
-        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-        {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+          {slides}
+          <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+          <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
       </Carousel>
+      
       </div>
     );
   }

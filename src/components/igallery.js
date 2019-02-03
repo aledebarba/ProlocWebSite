@@ -36,7 +36,7 @@ import Lightbox from 'react-images'
 import { Collapse, Button } from 'reactstrap'
 import { Mockup as PHOTO_SET } from '../config/galleyImagesMockup'
 import styled from 'styled-components'
-import { FaArrowDown, FaChevronDown } from 'react-icons/fa';
+// import { FaArrowDown, FaChevronDown } from 'react-icons/fa';
 
 
 const Label = styled.label`

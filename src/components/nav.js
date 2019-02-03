@@ -8,6 +8,7 @@ import {
   NavItem,
   NavLink} from 'reactstrap';
 import logo from '../images/Menu Logo.png'
+import { Element } from 'react-scroll'
 
 
 export default class Example extends React.Component {
@@ -33,6 +34,7 @@ export default class Example extends React.Component {
 
     return (
       <div>
+        <Element name="pageTop" className="pageTop" />
         <Navbar dark fixed="top" expand="md" style={styles.navbar}>
           <NavbarBrand href="/"><img src={logo} alt="Logo Proloc"/></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />

@@ -6,7 +6,7 @@ import PlaceHolder from '../components/placeholder'
 import Header from '../components/header'
 
 
-const SecondPage = () => (
+const Login = () => (
   <Layout>
     <SEO title="Login" />
     <Header Src="https://www.dropbox.com/s/n1or0q2k38swack/brasil-vista-cidade.jpg?dl=0" />
@@ -24,4 +24,4 @@ const SecondPage = () => (
   </Layout>
 )
 
-export default SecondPage
+export default Login

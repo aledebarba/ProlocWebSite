@@ -1,8 +1,9 @@
 import React from 'react'
 import Logo from '../images/Logo@2x.png';
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaChevronUp } from 'react-icons/fa'
 import styled from 'styled-components'
 import CustomButton from './customButton';
+import { Link } from 'react-scroll'
 
 const FooterSection = styled.div`
     background-color:  #242A36;
@@ -78,7 +79,9 @@ const Footer = () => (
                 <h4>Copyright: Todos os direitos reservados para Proloc</h4>
             </div>
             <div className="row justify-content-center">
-                <CustomButton label="Voltar ao topo" url="/#topnavbar"/>
+                <Link activeClass="active" to="pageTop" spy={true} smooth={true} offset={50} duration={2000}>
+                    <CustomButton Zero>Voltar ao topo<FaChevronUp/></CustomButton>
+                </Link>
             </div>
        </CopyrightSection>
     </React.Fragment>
