@@ -1,10 +1,24 @@
 import React from 'react'
 import MovieCase from './moviecase'
 import CustomButton from './customButton';
+import styled from 'styled-components'
+
+const Section = styled.div`
+background: rgba(125,19,0,1);
+background: -moz-linear-gradient(top, rgba(125,19,0,1) 0%, rgba(0,0,0,0) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(125,19,0,1)), color-stop(100%, rgba(0,0,0,0)));
+background: -webkit-linear-gradient(top, rgba(125,19,0,1) 0%, rgba(0,0,0,0) 100%);
+background: -o-linear-gradient(top, rgba(125,19,0,1) 0%, rgba(0,0,0,0) 100%);
+background: -ms-linear-gradient(top, rgba(125,19,0,1) 0%, rgba(0,0,0,0) 100%);
+background: linear-gradient(to bottom, rgba(125,19,0,1) 0%, rgba(0,0,0,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d1300', endColorstr='#000000', GradientType=0 );
+    padding-top: 50px;
+    padding-bottom: 50px;
+`
 
 const HomeMovieSection = () => (
     <React.Fragment>
-    <div className="container homeMovieSection">
+    <Section className="container-fluid">
         <div className="row justify-content-center">
             <h1>Cases de Sucesso</h1>
         </div>     
@@ -21,10 +35,10 @@ const HomeMovieSection = () => (
                     yUrl = "https://www.youtube.com/embed/8kziwuZcARE" 
                     withButton
                 />
-        <div className="row justify-content-end">
+        <div className="row justify-content-center">
             <CustomButton url="/cases/">Mais Cases</CustomButton> 
         </div>
-    </div>
+    </Section>
 
     </React.Fragment>
 )

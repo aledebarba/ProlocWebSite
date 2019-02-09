@@ -13,7 +13,7 @@ class IndexPage extends Component {
     return (
         <Layout>
             <SEO title="Home" />
-            <Jumbotron title="Bem vindos." lead="Somos a PROLOC. Peritos em encontrar locações de filmagem perfeitas para seu projeto. De modo rápido e descomplicado, porque nós sabemos bem o que é uma produção de filme." />
+            <Jumbotron title="Especialistas em locações de filmagem" lead="Peritos em encontrar locações de filmagem, perfeitas para seu projeto, de modo rápido e descomplicado. Porque nós sabemos bem o que é uma produção." />
             <HomeCarousel />
             <HomeMovieSection />
             <TeamSection />

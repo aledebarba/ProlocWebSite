@@ -36,7 +36,6 @@ import Lightbox from 'react-images'
 import { Collapse, Button } from 'reactstrap'
 import { Mockup as PHOTO_SET } from '../config/galleyImagesMockup'
 import styled from 'styled-components'
-// import { FaArrowDown, FaChevronDown } from 'react-icons/fa';
 
 
 const Label = styled.label`
@@ -71,7 +70,7 @@ const ImageGallery = styled.div`
   ${props => props.small && "& img  { width: 64px; height: 64px; };"}   
   ${props => props.medium && "& img  { width: 128px; height: 128px; };"}
   ${props => props.large && "& img  { width: 256px; height: 256px; };"} 
-  
+
   @media (max-width: 480px) {
      & div { justify-content: center };
      & img  { 
@@ -81,6 +80,8 @@ const ImageGallery = styled.div`
     };
   };  
 `
+
+//--------------  HiGallery -----------------
 
 export default class HiGallery extends Component {
 

@@ -23,6 +23,7 @@
     "react": "^16.7.0",
     "react-bootstrap-carousel": "^3.4.1",
     "react-dom": "^16.7.0",
+    "react-dropbox-chooser": "0.0.5",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.2.2",
     "react-images": "^0.5.19",

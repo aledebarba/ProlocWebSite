@@ -67,9 +67,9 @@ export default class editCases extends Component {
   
   // -----------------------------------------------------------------------
   
-  componentDidMount() {
+componentDidMount() {
     this.readDataAndCreateNewState();
-  }
+}
 
  render(props) {
 
@@ -79,8 +79,8 @@ export default class editCases extends Component {
         <CasesForm writeCase = {this.writeCase}/>
         <div className="container editCases"> 
           {this.state.casesArr.map((renderCase) => {
-            let containerKey = "container"+renderCase.casekey
-            let movieKey = "movie"+renderCase.casekey
+            let containerKey = "container"+renderCase.casekey // generate uniquekey for react
+            let movieKey = "movie"+renderCase.casekey // generate uniquekey for react
             return (
                   <div className="container" key={containerKey}>
                     <MovieCase 
@@ -93,24 +93,14 @@ export default class editCases extends Component {
                         imagesArr={renderCase.caseImages}
                     />
                     <div className = "row editCasesButtons justify-content-center" >
-                      <button
-                        type = "button"
-                        className = "btn btn-primary"
-                        onClick = { () => this.editCase(renderCase.casekey)}> 
-                        <FaEdit /> Editar 
-                      </button> 
-                      <button 
-                        type = "button"
-                        className = "btn btn-danger"
-                        onClick = { () => this.deleteCase(renderCase.casekey, renderCase.caseTitle)}>
-                        x Apagar 
-                      </button>
+                      <button type = "button" className = "btn btn-primary" onClick = { () => this.editCase(renderCase.casekey)}><FaEdit /> Editar</button> 
+                      <button type = "button" className = "btn btn-danger"  onClick = { () => this.deleteCase(renderCase.casekey, renderCase.caseTitle)}>x Apagar</button>
                     </div>
                   </div>
             )
           })}
         </div>
-            </Layout>
+      </Layout>
     )
   }
 }
@@ -123,6 +113,6 @@ const defaultEmptyState = [
   caseUrl: 'https://www.youtube.com/watch?v=-CCVhqps6Ic',
   caseDate: '01/01/2001',
   caseTags: ['nothing', 'on the', 'database'],
-  caseImages: ['https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150']
+  caseImages: ['https://via.placeholder.com/150']
 }
 ];

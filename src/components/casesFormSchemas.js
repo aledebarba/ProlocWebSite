@@ -6,7 +6,6 @@ export const schema = {
       "fcaseUrl",
       "fcaseDate",
       "fcaseTags",
-      "fcaseImages"
     ],
     "properties": {
       "fcaseTitle":{ 
@@ -32,11 +31,6 @@ export const schema = {
         "title":"Tags do case",
         "default":"externa, interna, institucional, proloc",
       },
-      "fcaseImages":{
-        "type":"string",
-        "title":"URLs finais das imagens separadas por vírgula",
-        "default":"https://picsum.photos/150/150/?random,https://picsum.photos/150/150/?random",
-      }
     }
   }
   
@@ -51,7 +45,4 @@ export const schema = {
         rows: 5
       }
     },
-    "fcaseImages": {
-      "ui:widget": "textarea"
-    }
   }
