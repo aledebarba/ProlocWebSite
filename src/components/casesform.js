@@ -172,9 +172,7 @@ export default class CasesForm extends Component {
     scroll.scrollToTop();
   }
    
-  timer = () => setTimeout (()=>{
-    this.setState({showalert: false})   
-  },5000)
+
     
   componentDidMount() {
     this.timer();
