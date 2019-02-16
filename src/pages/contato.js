@@ -4,7 +4,8 @@ import SEO from '../components/seo'
 import Header from '../components/header';
 import PlaceHolder from '../components/placeholder';
 import ContactForm from '../components/contactForm'
-import axios from 'axios'
+import FAQ from '../components/faq'
+//
 
 const API_PATH = 'http://proloc.uxdir.com/emailapi/index.php';
 
@@ -15,21 +16,6 @@ export default class Contato extends Component {
       apiResult: ''
     }
 
-  }
-
-  callSendMailPHPApi = ( formData ) => {
-    axios({
-      method: 'post',
-      url: `${API_PATH}`,
-      headers: { 'content-type': 'application/json' },
-      data: formData
-    })
-      .then(result => {
-        this.setState({
-          apiResult: result.data.sent
-        })
-      })
-      .catch(error => this.setState({ apiResult: error.message }));
   }
 
   render() {
@@ -50,7 +36,7 @@ export default class Contato extends Component {
         <ContactForm sendEmail = { this.callSendMailPHPApi } />
       </div>
       <div className="row">
-        <PlaceHolder title="Faq" />
+        <FAQ />
       </div>
     </div>
   </Layout>

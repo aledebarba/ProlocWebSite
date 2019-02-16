@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
-import { FaEnvelope } from 'react-icons/fa';
+import { FaEnvelope, FaInfoCircle } from 'react-icons/fa';
 import FadingMessage from '../components/fadingMessage'
 import styled from 'styled-components'
-import * as emailjs from 'emailjs-com'
+import * as emailjs from 'emailjs-com' // http://www.emailjs.com/
 
 
 const USER_ID = "user_Uq9ngBqkbOJG4TB8uUBJA"
 const TEMPLATE_ID = "template_gSnpz0EK"
 const SERVICE_ID = "Proloc UXDIR Server"
-const EMAIL_TO = "develop@proloc.uxdir.com"
 
 const MessageForm = styled.form`
   display: flex;
   flex-direction: column;
   & input, select, textarea  {
     display: block;
-    width: 100%;
+    width: 90%;
   }
   & label {
     color: white;
@@ -27,16 +26,6 @@ const SpanControl = styled.div`
   visibility: hidden;
   height: 0px;
 `
-
-/* 
-Syntax
-<CasesForm sendEmail = { fnSendEmail }/>
-fnSendEmail = nome da função que trata e envia o email.
-fnSendEmail recebe implicitamente o conteúdo de formData
-
-component docs:
-https://github.com/mozilla-services/react-jsonschema-form
-*/
 
 export default class ContactForm extends Component {
 
@@ -65,31 +54,42 @@ export default class ContactForm extends Component {
       let TEMPLATE_PARAMS = {
         to_name: 'Administrador Proloc',
         from_name: this.formName.current.value,
+        from_email: this.formMailFrom.current.value,
         message_html: this.formMessage.current.value,
         from_subject: this.formSubject.current.value
       }
 
 
-      emailjs.send(SERVICE_ID, TEMPLATE_ID, TEMPLATE_PARAMS,USER_ID)
-      .then( (response) => {console.log("sucesso",response.status, response.text)}, (erro) =>{console.log("erro:",erro)})
-
-
-    }
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, TEMPLATE_PARAMS, USER_ID)
+          .then( (response) => 
+          {
+            this.setState ({
+              formAlert: "Mensagem enviada com sucesso."
+            })
+          }, (error) =>
+          {
+          this.setState ({
+            formAlert: "Problema na rede. Mensagem não enviada."
+          })
+        })
+    } // end handleSubmit
 
     
     render() {
       return (
           <React.Fragment>
             <div className="container">
-              <div  className="row casesFormHeader">
-                <div className="col-12">
+              <div className="row justify-content-center casesFormHeader">
                   <h4>Contato com a Proloc</h4>
-                  <FadingMessage>{ this.state.formAlert }</FadingMessage>
-                </div>
               </div>
               <div className="row casesFormContainer">
               <div className="row">
                 <div className="col-sm-12 col-md-6">
+                <FadingMessage>                   
+                  <span>
+                      <FaInfoCircle /> { this.state.formAlert }
+                  </span>
+                </FadingMessage>
                   <MessageForm className="editCasesForm" id="messageform">
                         <SpanControl>
                           <label>
@@ -121,6 +121,7 @@ export default class ContactForm extends Component {
                   </MessageForm>
                 </div>
                 <div className="col-sm-12 col-md-4"> 
+
                 <ul>
                   <li>Use essa área para entrar em contato com a Proloc.</li>
                   <li>Se quiser uma resposta mais rápida, pode ser que encontre uma na seção de dúvidas abaixo.</li>

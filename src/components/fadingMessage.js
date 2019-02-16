@@ -1,36 +1,76 @@
-import React, { Component, Children } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react'
+import styled, { keyframes } from 'styled-components'
+
+
+const animationControl = {
+  showAnimation : true, // always start showing animation
+  animationCounter : 0,  // a flag to control how many times the animation was showed
+  fadeDuration: 0.5,
+}
+
+const fadeInAnimation = keyframes`
+  0% { opacity: 0; 
+       margin-left: 100px; }
+  100% { opacity: 1; 
+        margin-right: 0px; }
+`
+
+const fadeOutAnimation = keyframes`
+  0% { opacity: 1;  }
+  100% { opacity: 0; }
+`
 
 const AnimatedDiv = styled.div`
-  display: inline;
-  color: white;
-  font-size: 14px;
-  opacity: ${ props => props.showit ? 1 : 0 };
-  transition: all 1s linear;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  animation: ${ props => props.showit ? props.animation : fadeOutAnimation } 1s ease forwards;
 `
+
 export default class FadingMessage extends Component {
 
   constructor (props){
+     
       super(props)     
       this.state = {
-          showAlert: true,
+          showComponent: true,
           duration: this.props.duration ? this.props.duration : 5000, 
       }
   }  
 
   timer = () => setTimeout (()=>{
-    this.setState({showAlert: false})   
+    animationControl.showAnimation = false // in the next setState will fadeOut the component
+    animationControl.animationCounter = 0 // reset the counter, so the render do not call timer recursively
+    this.setState ({
+      showComponent: true //  just call render
+    })
   },this.state.duration)
 
-  // where is the error
+  componentDidMount(props) {
+    this.timer() // call timer first time component shows
+  }
+
+  componentDidUpdate (props) {
+    animationControl.showAnimation = true 
+    animationControl.animationCounter ++
+  }
+
   render() {
-    this.timer();
-    return (
+  
+  if (animationControl.animationCounter > 0) { // its not the first time showing 
+      animationControl.showAnimation = true // then, turns animation to true, call timer
+      this.timer()
+  }
+
+  return (
       <React.Fragment>
-          { this.state.showAlert 
-            ? <AnimatedDiv showit>{this.props.children}</AnimatedDiv>
-            : <AnimatedDiv>{this.props.children}</AnimatedDiv>
-         }
+          <AnimatedDiv 
+              showit={animationControl.showAnimation}
+              fadeDuration={animationControl.fadeDuration}
+              animation={fadeInAnimation}>
+                {this.props.children}
+            </AnimatedDiv>
       </React.Fragment>
     )
   }
