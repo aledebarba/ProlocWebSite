@@ -4,7 +4,7 @@ import { UncontrolledCollapse, Button, CardBody, Card, Container } from 'reactst
 const FAQ = () => (
 
     <Container>
-    <h1>Perguntas frequentes:</h1>
+    <h3>Perguntas frequentes:</h3>
     <FaqItem titulo="Como alugar minha propriedade para locações de filmagem?">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </FaqItem>
