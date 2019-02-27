@@ -6,23 +6,26 @@ import ContactForm from '../components/contactForm'
 import FAQ from '../components/faq'
 import styled from 'styled-components'
 import MyMapComponent from '../components/mymapcomponent'
+import PlaceMap from '../images/mapplace.svg'
 
 const Address = styled.div`
-  padding: 10px 0px 10px 0px !important;
-  margin: 20px 0px 10px 0px !important;
-
+  margin-left: 10px !important;
+  padding: 0px !important;
   & h1 {
     font-size: 18px !important;
-    padding: 0px !important;
     margin: 0px !important;
   }
-
   & p {
     font-size: 12px !important;
     text-align: left !important;
     padding: 0px !important;
-    margin: 0px !important;
+    margin-left: 0px !important;
   }
+`
+
+const Section = styled.div`
+  margin: 50px auto;
+  padding: 10px;
 `
 
 export default class Contato extends Component {
@@ -47,32 +50,30 @@ export default class Contato extends Component {
             mapa abaixo.
           </p>
         </Header>
-        <div className="container">
+        <Section className="container">
           <div className="row">
-            <ContactForm sendEmail={this.callSendMailPHPApi} />
+            <ContactForm />
           </div>
+        </Section>
+        <Section className="container">
           <div className="row justify-content-left">
-            <Address className="col-2">
-              <h1>Endereço:</h1>
-              <p>Rua Logradouro Silva, 527</p>
-              <p>Santo Amaro da Purificação - BA</p>
-              <p>18969-000</p>
-              <p>Tel: +55 11 98765-4321</p>
+            <Address className="col-sm-12 col-md-2">
+            <img src={PlaceMap} style={{ width: 64, marginBottom: 10}} alt="ilustração com uma seta indicativa e uma parte do símbolo da proloc"/>
+            <p>
+                Rua Logradouro Silva, 527<br/>
+                Santo Amaro da Purificação - BA<br/>
+                18969-000<br/>
+                Tel: <a href="tel:+55 11 98765-4321">+55 11 98765-4321</a><br/>
+              </p>
             </Address>
             <div className="col">
-              <MyMapComponent
-                isMarkerShown
-                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-                loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `400px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-              />
+              <MyMapComponent />
             </div>
           </div>
-          <div className="row">
+          <Section className="row">
             <FAQ />
-          </div>
-        </div>
+          </Section>
+        </Section>
       </Layout>
     )
   }

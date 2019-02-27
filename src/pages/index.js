@@ -13,7 +13,9 @@ class IndexPage extends Component {
     return (
         <Layout>
             <SEO title="Home" />
-            <Jumbotron title="Especialistas em locações de filmagem" lead="Peritos em encontrar locações de filmagem, perfeitas para seu projeto, de modo rápido e descomplicado. Porque nós sabemos bem o que é uma produção." />
+            <Jumbotron 
+                title="Especialistas em locações de filmagem"
+                lead="Peritos em encontrar locações de filmagem, perfeitas para seu projeto, de modo rápido e descomplicado. Porque nós sabemos bem o que é uma produção." />
             <HomeCarousel />
             <HomeMovieSection />
             <TeamSection />

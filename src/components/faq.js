@@ -1,39 +1,60 @@
-import React from 'react';
-import { UncontrolledCollapse, Button, CardBody, Card, Container } from 'reactstrap';
+import React from 'react'
+import {
+  UncontrolledCollapse,
+  Button,
+  CardBody,
+  Card,
+  Container,
+} from 'reactstrap'
+
 
 const FAQ = () => (
-
-    <Container>
+  <Container>
     <h3>Perguntas frequentes:</h3>
+    <p style={{ textAlign: "left", padding: 0}}>
+      Aqui estão algumas dúvidas recorrentes de nosso usuários, talvez sua
+      resposta esteja aqui.
+    </p>
     <FaqItem titulo="Como alugar minha propriedade para locações de filmagem?">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
     </FaqItem>
     <FaqItem titulo="Como acompanhar a análise de meu projeto?">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
     </FaqItem>
     <FaqItem titulo="Como enviar um projeto?">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
     </FaqItem>
-    </Container>
+  </Container>
+)
 
-);
-
-export default FAQ;
+export default FAQ
 
 const FaqItem = props => {
-    let dt = new Date().getTime()
-    let uq = "toggler_"+dt.toString()
-    return (
+  let dt = new Date().getTime()
+  let uq = 'toggler_' + dt.toString()
+  return (
     <Container>
-        <Button color="primary" id={ uq } style={{ margin: '10px 0px 5px 0px', textAlign: "left"}}>
-            { props.titulo }
-        </Button>
-        <Card>
-            <UncontrolledCollapse toggler={uq} >
-                <CardBody>
-                { props.children }
-                </CardBody>
-            </UncontrolledCollapse>
-        </Card>
+      <Button
+        color="primary"
+        id={uq}
+        style={{ margin: '10px 0px 5px 0px', textAlign: 'left' }}
+      >
+        {props.titulo}
+      </Button>
+      <Card>
+        <UncontrolledCollapse toggler={uq}>
+          <CardBody>{props.children}</CardBody>
+        </UncontrolledCollapse>
+      </Card>
     </Container>
-)}
+  )
+}

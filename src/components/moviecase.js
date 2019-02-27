@@ -4,6 +4,8 @@ import CustomButton from './customButton'
 import HiGallery from './igallery'
 import styled from 'styled-components'
 import Palette from '../styles/palette'
+import YouTube from 'react-youtube';
+import YouTubeAnimatedIcon from '../images/youtubeanimated.svg'
 
 /* 
 Syntax
@@ -13,13 +15,22 @@ Syntax
     date = string
     tags = [ string, string, string, ... ]
     imageArr = [ url, url, url, url, url, ...] (url = string)
-    yUrk = Youtube URL (string)
+    yUrl = Youtube URL (string)
     [ small ] (thumbnail size)
     [ medium ] (thumbnail size)
     [ large ] (thumbnail size)
 />
 */
 
+var VIDEO_ID = ''
+
+const LoadingOverlay = styled.div`
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    visibility: ${props => props.loading ? "visible" : "hidden" };
+    color: white;
+`
 const CaseWrapper = styled.div`
     margin: 0px 20px 50px 20px !important;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.8);
@@ -112,11 +123,19 @@ export default class MovieCase extends Component {
             })
    
         this.state = {
-            images: imagesGalleryArray 
+            loaderVisible: true,
+            images: imagesGalleryArray,
         }
     }
 
+    _onReady = () => {
+        this.setState({
+            loaderVisible: false
+        })
+    }
+
   render() {
+      this.getYoutubeURL();
     return (
         <React.Fragment>
         <CaseTitle className="row justify-content-center">
@@ -137,7 +156,12 @@ export default class MovieCase extends Component {
 
             <CaseMovie className="col-md-12 col-lg-8">
                 <div className="videoWrapper">
-                    <iframe title="movie" src={this.getYoutubeURL()} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <LoadingOverlay loading={this.state.loaderVisible}>
+                         <img src={YouTubeAnimatedIcon} width="100" height="80" alt="animação mostrand marca animada do youtube enquanto os filmes são carregados"/>
+                          Carregando video...
+                    </LoadingOverlay>
+                    <YouTube videoId={ VIDEO_ID } onReady={this._onReady}/>
+                    {/*<iframe title="movie" src={this.getYoutubeURL()} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>*/}
                 </div>
                 <CaseSubtitle>
                     <FaFilm/> Fotos das locações
@@ -164,6 +188,7 @@ export default class MovieCase extends Component {
         let youtube = this.props.yUrl ? this.props.yUrl : "https://www.youtube.com/embed/yy5THitqPBw";
         // caso a url do video seja o link de navegador, muda para link embed
         youtube = youtube.replace("watch?v=", "embed/"); // caso tenha sido passado o link de view
+        VIDEO_ID = youtube.split("/").pop();
         return youtube;
     }
 

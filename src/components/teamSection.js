@@ -11,8 +11,10 @@ const Team = styled.div`
     padding-top: 50px;
     padding-bottom: 50px;
     margin: 50px 0px 50px 0px;
+    & h1 {
+        text-align: center;
+    }
     `
-
 const TeamCards = styled.div `
     margin-bottom: 50px;
     display: flex;

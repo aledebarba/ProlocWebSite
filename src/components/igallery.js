@@ -37,12 +37,22 @@ import { Collapse, Button } from 'reactstrap'
 import { Mockup as PHOTO_SET } from '../config/galleyImagesMockup'
 import styled from 'styled-components'
 
-
+const Sticky = styled.div`
+  color: ${props => props.selected ? "#dddddd" : "#ffffff" };
+  background:  ${props => props.selected ? "#C2B09F" : "#C79C38" } ;
+  margin: 2px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 3px;
+  box-shadow: ${props => props.selected ? "inset 3px 3px 10px rgba(0,0,0,0.5)" : "2px 2px 5px rgba(0,0,0,0.5)"};
+  text-shadow: 1px 1px 1px black;
+  cursor: pointer;
+  
+`
 const Label = styled.label`
   margin-top: 0;
   text-transform: capitalize;
   `
-
 const Form = styled.form`
   color: white;
   display: flex;
@@ -59,9 +69,7 @@ const CheckButton = styled.div`
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
 `
-// styled components
 const ImageGallery = styled.div`
-
   margin: 10px 0px;
   & div {
     justify-self: center;
@@ -80,6 +88,11 @@ const ImageGallery = styled.div`
     };
   };  
 `
+const StickyButton = (props) => {  
+  return (
+    <Sticky {...props}>{props.children}</Sticky>
+  )
+}
 
 //--------------  HiGallery -----------------
 
@@ -93,12 +106,13 @@ export default class HiGallery extends Component {
 
     userPhotos.map(item => item.usertags.split(',').map(tag => {
       let userTag = tag.trim()
-      if (alltags.indexOf(userTag) === -1) {alltags.push(userTag)} // se não encontrar a tag no conjunto, adiciona a tag no conjunto
+      if (alltags.indexOf(userTag) === -1) { alltags.push(userTag) } // se não encontrar a tag no conjunto, adiciona a tag no conjunto
       return true
     }))
- 
-    checkboxes = alltags.map (tag => ({label: tag, value:false}))
-        
+
+    // checkboxes = [ { label:string , value: boolean } ]
+    checkboxes = alltags.map(tag => ({ label: tag, value: false }))
+
     this.state = {
       showall: true,
       photoSet: userPhotos,
@@ -125,6 +139,7 @@ export default class HiGallery extends Component {
       if (CheckBox.label === target.name) {
         CheckBox.value = !CheckBox.value  // inverte o valor do checkBox clicado
       }
+
       if (CheckBox.value) {
         showallimages = false // se há algum checkbox selecionado, não mostra mais todas as imagens
         tagsToShow.push(CheckBox.label) // adiciona a tag no conjunto de tagas que precisam ser mostradas
@@ -186,6 +201,50 @@ export default class HiGallery extends Component {
   }
    // ------------------------------------ RENDER ------------------------------------------
 
+   handleStickyButtonClick = (e, id) => {
+   
+     let checkBoxesNewState = []
+     checkBoxesNewState = this.state.tagsCheckBoxes
+     checkBoxesNewState.forEach (item => item.value=false)
+     checkBoxesNewState[id].value = true
+     
+     let showallimages = true
+     let userPhotos = this.props.photoSet ? this.props.photoSet : PHOTO_SET
+     let photosToShow = []
+     let tagsToShow = []
+
+     checkBoxesNewState.forEach (item => {
+      if (item.value) {
+         showallimages = false
+         tagsToShow.push (item.label)
+       }
+     })
+
+     if (!showallimages) {
+       userPhotos.forEach  (photo => {
+         tagsToShow.forEach  (tag => {
+          let userTags = photo.usertags
+           if (userTags.indexOf(tag) >-1) {
+             if (!photosToShow.includes(photo)) {
+               photosToShow.push(photo)
+             }
+           }
+         }) 
+       })
+     } else { photosToShow = userPhotos }
+        
+
+
+     this.setState ({ 
+      showall: showallimages,
+      showGallery: true, 
+      tagsCheckBoxes: checkBoxesNewState,
+      photoSet: photosToShow,
+     });
+    
+    }
+    
+
   render() {
 
     let randomNumber = new Date().getTime()
@@ -200,14 +259,24 @@ export default class HiGallery extends Component {
         <Collapse isOpen={this.state.collapse}>
           <Form>
               { this.state.tagsCheckBoxes.map( (SelectButton, index) =>
-              <CheckButton key={index}>
+              <StickyButton 
+                  selected={SelectButton.value}
+                  key={index}
+                  onClick={(e, id) => this.handleStickyButtonClick(e, index)}
+                  >
+                  {SelectButton.label}
+                  
+              </StickyButton>
+
+              /*<CheckButton key={index}>
                   <input name={SelectButton.label}
                     type="checkbox"
                     checked={SelectButton.value}
                     onChange={this.handleCheckBoxChanges} />
                   <Label>&nbsp;{SelectButton.label}</Label>
                 </CheckButton> 
-              )} 
+              )}*/ 
+              )}
           </Form>
         </Collapse>
       </>}

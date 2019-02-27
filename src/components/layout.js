@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Nav from './nav'
 import Footer from './footer'
+import styled from 'styled-components'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -16,11 +17,13 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-       <React.Fragment>
+      <React.Fragment>
+        <GlobalStyles>
           <Nav />
           {children}
           <Footer />
-        </React.Fragment>
+        </GlobalStyles>
+      </React.Fragment>
     )}
   />
 )
@@ -30,3 +33,8 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+const GlobalStyles = styled.div`
+  padding: 0px;
+  margin: 0px;
+`

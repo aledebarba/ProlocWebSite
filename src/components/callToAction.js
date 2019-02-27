@@ -1,8 +1,32 @@
 import React, { Component } from 'react'
-import "./callToAction.css"
 import CustomButton from './customButton'
+import styled from 'styled-components'
 
 // props Title, Text, Button, Url 
+
+const CTASection = styled.div`
+    background: linear-gradient(180deg, #866A1C 0%, #242A36 100%);
+    box-shadow: 0px -30px 40px rgba(0, 0, 0, 0.85);
+    padding: 50px 30px;
+    margin: 50px 0px;  
+    text-align: center;
+
+    & h1 { 
+        margin: 10px 10px;
+        padding: 0;
+        color: rgba(246, 244, 250, 0.746);
+    }
+
+    & p {
+        font-size: 14px; 
+        font-weight: normal; 
+        margin: 10px 10px 30px 10px;
+        padding: 0;
+        color: #F6F4FA;
+    }
+`
+
+
 
 export default class callToAction extends Component {
 
@@ -15,19 +39,17 @@ export default class callToAction extends Component {
     return (
         <React.Fragment>
         <div className="container">
-            <div className="row justify-content-center call-to-action">
+            <CTASection className="row justify-content-center">
                 <div className="col">
                     <h1>{title}</h1>
                     <p>{text}</p>
                     <CustomButton model="1" url={btnUrl} label={label} />
                 </div>
-            </div>
+            </CTASection>
      </div>
      </React.Fragment>
     )
   }
-
-
 
     defineProps() {
         let label = this.props.button ? this.props.button : "Button to action";
