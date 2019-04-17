@@ -1,10 +1,9 @@
-
 import React, { Component } from 'react' 
-import Layout from '../components/layout' // Gatsby
+import Layout from '../components/layout' 
 import SEO from '../components/seo'
-import Header from '../components/header' // Proloc 
+import Header from '../components/header' 
 import MovieCase from '../components/moviecase'
-import { configFirebase as DB_CONFIG } from '../config/config-firebase' //Firebase
+import { configFirebase as DB_CONFIG } from '../config/config-firebase'
 import firebase from 'firebase/app'
 import 'firebase/database'
 

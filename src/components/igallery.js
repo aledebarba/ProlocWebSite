@@ -49,10 +49,10 @@ const Sticky = styled.div`
   cursor: pointer;
   
 `
-const Label = styled.label`
+/* const Label = styled.label`
   margin-top: 0;
   text-transform: capitalize;
-  `
+  `*/
 const Form = styled.form`
   color: white;
   display: flex;
@@ -61,14 +61,15 @@ const Form = styled.form`
   font-size: 12px !important;  
   margin: 15px 0;
 `
-const CheckButton = styled.div`
+/* const CheckButton = styled.div`
   margin: 5px;
   padding: 8px 5px 0px 5px;
   display: block;
   background-color: rgb(230,88,66);
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
-`
+`*/
+
 const ImageGallery = styled.div`
   margin: 10px 0px;
   & div {
