@@ -26,6 +26,7 @@ const TeamCards = styled.div `
 const TeamSection = () => (
         <React.Fragment>
             <Team className="container-fluid">
+            <div className="container">
                 <div className="row justify-content-center">
                     <div className="col col-md-10">
                         <h1>Nosso time</h1>
@@ -58,7 +59,7 @@ const TeamSection = () => (
                 <div className="justify-content-center">
                     <CustomButton url="/quemsomos">Saiba mais</CustomButton>
                 </div>
-
+            </div>
             </Team>
             </React.Fragment>
     )

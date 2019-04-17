@@ -79,6 +79,7 @@ const CaseText = styled.p`
     text-align: left !important;
     padding: 0px;
     margin: 0px;
+    line-height: 1.4em;
 `;
 
 const ImagesWrapper = styled.div`

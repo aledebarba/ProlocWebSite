@@ -19,9 +19,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d1300', end
 const HomeMovieSection = () => (
     <React.Fragment>
     <Section className="container-fluid">
+    <div className="container">
         <div className="row justify-content-center">
             <h1>Cases de Sucesso</h1>
-        </div>     
+        </div> 
         <MovieCase title="Pizza Hut Brasil Sliders" 
                     text ="A Pizza Hut apresenta campanha publicitária para anunciar seu lançamento exclusivo, os Sliders. O produto, grande aposta da rede para 2014, são pizzas individuais com a famosa e tradicional massa Pan em um tamanho de 9,5 cm de diâmetro e 70 gramas." 
                     date ="07/Jan/2014"
@@ -37,6 +38,7 @@ const HomeMovieSection = () => (
                 />
         <div className="row justify-content-center">
             <CustomButton url="/cases/">Mais Cases</CustomButton> 
+        </div>
         </div>
     </Section>
 

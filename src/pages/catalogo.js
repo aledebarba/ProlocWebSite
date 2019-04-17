@@ -3,6 +3,11 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Header from '../components/header' // Proloc
 import HiGallery from '../components/igallery'
+import styled from 'styled-components'
+
+const Content = styled.div`
+  margin-top: 25px;
+`
 
 const Catalogo = () => (
   <Layout>
@@ -16,9 +21,9 @@ const Catalogo = () => (
         catálogo, logo abaixo.
       </p>
     </Header>
-    <div className="container">
+    <Content className="container">
       <HiGallery />
-    </div>
+    </Content>
   </Layout>
 )
 

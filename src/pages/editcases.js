@@ -5,6 +5,7 @@ import CasesForm from '../components/casesform' // Proloc
 import MovieCase from '../components/moviecase' 
 import { configFirebase as DB_CONFIG } from '../config/config-firebase' // Firebase
 import firebase from 'firebase/app'
+
 import 'firebase/database'
 import { FaEdit } from 'react-icons/fa';
 

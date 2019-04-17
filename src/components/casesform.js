@@ -86,7 +86,7 @@ export default class CasesForm extends Component {
             }
             )
             this.caseFormData = {};
-            this.timer();
+            //this.timer();
             this.scrollToTop();
           }
       } 
@@ -112,7 +112,7 @@ export default class CasesForm extends Component {
              showalert: true
            })
            this.scrollToTop()
-           this.timer()
+           //this.timer()
            return
         }
         this.props.writeCase(newState) // a função writecase foi passada na chamada desse componente como uma prop
@@ -130,7 +130,7 @@ export default class CasesForm extends Component {
           showalert: true,
         })
         this.scrollToTop();
-        this.timer();
+        //this.timer();
        }
 
        
@@ -165,7 +165,7 @@ export default class CasesForm extends Component {
 
       })
       this.scrollToTop();
-      this.timerToFader();
+      //this.timerToFader();
   }
 
   scrollToTop = () => {
@@ -175,7 +175,7 @@ export default class CasesForm extends Component {
 
     
   componentDidMount() {
-    this.timer();
+    //this.timer();
   }
 
   render() {            

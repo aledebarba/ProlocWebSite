@@ -9,22 +9,36 @@
 .homeCarousel h1 {
     font-style: normal;
     font-weight: normal;
+    font-size: 14px;
     color: #A0D2E9;
     text-align: center;
     font-weight: bold;
-    padding: 20px 10px 0px 20px;
+    padding: 0;
 }
 
 .homeCarousel p { 
     color: #CBCFD4;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
  }
 
  .homeCarousel lead { display: none; }
 
+ .carousel-caption h3 {
+     color: #A0D2E9;
+     font-size: 42px !important;
+     padding:0;
+     margin-bottom: 10px;
+    }
+.carousel-caption p {
+    color: #CBCFD4;
+    font-size: 18px;
+    font-weight: bold !important;
+    text-align: center !important;
+    padding: 10px;
+}
 
 
 

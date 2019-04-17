@@ -63,7 +63,7 @@ export default class Cases extends Component {
     return (
       <Layout>
         <SEO title="Cases" />
-        <Header title="Nossos cases">
+        <Header title="Estudos de casos">
           <p>
             Uma pequena amostra de nossos trabalhos, os mais recentes ou que
             achamos especialmente desafiadores, para você entender como um
